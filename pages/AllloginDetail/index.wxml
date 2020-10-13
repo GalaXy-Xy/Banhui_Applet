@@ -1,0 +1,233 @@
+<view class="containers">
+	<!-- 头部--个人信息区域 -->
+	<view class="top-user">
+		<!-- 左 -->
+		<view class="top-user-left">
+			<image class="top-left-img" src="{{userImg==''?'/static/images/logo-white.png':src + userImg }}"></image>
+			<text class="top-name">{{nickename}}\n<text class="top-time">{{time}}</text></text>
+		</view>
+		<!-- 右--小点点 -->
+		<view class="top-user-right" bindtap="show">
+			<view class="cirle-right"></view>
+			<view class="cirle-right"></view>
+			<view class="cirle-right"></view>
+		</view>
+	</view>
+	<!-- 头部--个人信息区域end -->
+
+	<!-- 图片区域 -->
+	<view class="content-img" wx:for="{{ImgList}}" wx:key="index" hidden="{{isImg}}">
+		<image class="content-img3" src="{{src + item.post_imgurl }}" mode="widthFix"></image>
+		<!-- <image src="/static/images/detailImg2.png"></image> -->
+	</view>
+	<!-- 图片区域end -->
+
+	<!-- 正文-文字区域 -->
+	<view class="content-text">
+		{{content}}
+	</view>
+	<!-- 正文-文字区域end -->
+
+	<!-- 底部-个人信息区域 -->
+	<view class="bot-user" wx:if="{{calssName != ''}}">
+		<image class="bot-img" src="{{src + calssImg}}"></image>
+		<text class="bot-text">班级:</text>
+		<text class="bot-text1">{{calssName}}</text>
+	</view>
+	<!-- 底部-个人信息区域end -->
+
+	<!-- 评论模块 -->
+	<view class="container_con">
+		<!-- 头部标题 -->
+		<view class="top-title">
+			<view class="left-top-title">
+				<text class="{{seleted==1?'allSelect active':'allSelect allSelectApc'}}" data-num="1" bindtap="seletednow">全部</text>
+				<text class="allNum">{{lengthAll}}</text>
+			</view>
+			<view class="right-top-title">
+				<text class="{{seleted==2?'onlyHost active':'onlyHost'}}"  data-num="2" bindtap="seletednow" >只看楼主</text>
+				<text class="onlyHostNum">{{onlylength}}</text>
+			</view>
+		</view>
+		<!-- 头部标题end -->
+
+		<!-- 正文区域 -->
+		<!-- 根据display：none控制有无评论内容 -->
+		<!-- 有评论内容 -->
+		<scroll-view class="jump_list" scroll-into-view="item{{toView}}" scroll-y="true" scroll-with-animation="true" >
+			<view class="content-comennt" hidden="{{isComment}}" id="item{{item.comment_replyfloor}}" wx:for="{{commentAll}}" wx:key="index">
+				<!-- 个人信息 -->
+				<view class="userInfo-comennt">
+					<view class="top-user">
+						<!-- 左 -->
+						<view class="top-user-left">
+							<image class="top-left-img"  src="{{item.bhuser.user_avatar==''?'/static/images/logo-white.png':src + item.bhuser.user_avatar}}"></image>
+							<text class="top-name">{{item.bhuser.user_nickname}}\n<text class="top-time">{{item.comment_replyfloor}}楼</text><text class="{{item.comment_isOp ==1?'top-time':'top-time top-time_spc'}}">{{item.comment_isOp ==1?'楼主':''}}</text></text>
+						</view>
+						<!-- 右 -->
+						<view style="display:{{item.comment_content == '此内容已经不存在!'?'none':'inline-block'}}" class="top-user-right" data-commentid="{{item.comment_id}}" data-userId="{{item.bhuser.user_id}}"  bindtap="show_c">
+							<view class="cirle-right"></view>
+							<view class="cirle-right"></view>
+							<view class="cirle-right"></view>
+						</view>
+					</view>
+				</view>
+				<!-- 评论内容 -->
+				<view class="content-comoont">
+						<block  wx:for="{{huifu}}" wx:for-item="item2">
+							<view wx:if="{{item.comment_type == 1 && item2.comment_id == item.comment_sourceid}}"   class="ccc" id="item{{item2.comment_replyfloor}}" bindtap="dingwei">{{item2.bhuser.user_nickname}}:<text class="ccc_floor">{{item2.comment_replyfloor}}楼</text><text class="{{item2.comment_isOp ==1?'top-time':'top-time top-time_spc'}}">{{item2.comment_isOp ==1?'楼主':''}}</text>
+								<view class="con_ccc con_ccc_con"  id="{{item2.comment_sourceid}}">{{item2.comment_content}}</view>
+								<!-- <view class="con_ccc con_ccc_con"  id="{{item2.comment_sourceid}}" 该内容已经不存在！</view> -->
+								<view class="con_ccc" >{{huifu.comment_createtime}}</view>
+							</view>	
+						</block>
+					<view  id="{{item.bhuser.user_id}}" data-commentId="{{item.comment_id}}" bindtap="{{item.comment_type == 1 || item.comment_content == '此内容已经不存在!'?'':'uploadIpt2'}}">{{item.comment_content}}</view>
+
+					<!-- 时间 -->
+					<view class="time-comment">
+						{{item.comment_createtime}}
+					</view>			
+				</view>
+			</view>
+		</scroll-view>
+		<!-- 暂无评论内容 -->
+		<view class="NoComennt" hidden="{{Nocon}}">
+					<view class="NoComenntImg">
+						<image src="/static/images/comennt.png"></image>
+					</view>
+					<view class="NoComenntText">还没有人评论哦</view>
+		</view>
+				<!-- 正文区域end -->
+
+
+		<!-- 底部表单区域 -->
+		<view class="inp-commont" wx:if="{{contentIpt}}">
+			<input placeholder="写评论" bindfocus="uploadIpt" focus="{{is_focus}}" readonly="readonly"></input>
+		</view>
+		<!-- 评论模块end -->
+
+		<!-- 反馈弹窗 -->
+		<!-- 自己 -->
+		<view class="backWindow1" hidden="{{flag}}"  bindtap="hide">
+			<view class="backWindow" >
+				<view class="itemBack" bindtap="editCards">
+					<image src="/static/images/edit.png"></image>
+					<view>编辑帖子</view>
+				</view>
+				<view class="itemBack" bindtap="delCard_c">
+					<image src="/static/images/delte.png"></image>
+					<view>删除帖子</view>
+				</view>
+				<view class="icon-x icon_w" bindtap="hide"></view>
+			</view>		
+		</view>
+		<!-- 班长 -->
+		<view class="backWindow1" hidden="{{kaichu}}" bindtap="hide">
+			<view class="backWindow">
+				<view class="itemBack" bindtap="remove_c">
+					<image src="/static/images/cancel.png"></image>
+					<view>开除同学</view>
+				</view>
+				<view class="itemBack" bindtap="delCard_c">
+					<image src="/static/images/delte.png"></image>
+					<view>删除帖子</view>
+				</view>
+				<view class="icon-x icon_w" bindtap="hide"></view>
+			</view>
+		</view>
+		<!-- 普通用户 -->
+		<view class="backWindow1" hidden="{{guangg}}" bindtap="hide">
+			<view class="backWindow" >
+				<view class="itemBack" bindtap="guanggao">
+					<image src="/static/images/adver.png"></image>
+					<view>广告骚扰</view>
+				</view>
+				<view class="itemBack" bindtap="neirong">
+					<image src="/static/images/disu.png"></image>
+					<view>内容低俗</view>
+				</view>
+				<view class="icon-x icon_w" bindtap="hide"></view>
+			</view>
+		</view>
+		<!-- 管理员 -->
+		<view class="backWindow1"  hidden="{{guanliyuan}}" bindtap="hide">
+			<view class="backWindow">
+				<view class="itemBack" bindtap="remove_c">
+					<image src="/static/images/edit.png"></image>
+					<view>开除同学</view>
+				</view>
+				<view class="itemBack" bindtap="delCard_c">
+					<image src="/static/images/delte.png"></image>
+					<view>删除帖子</view>
+				</view>
+				<view class="itemBack" bindtap="fenghao">
+					<image src="/static/images/delte.png"></image>
+					<view>封号</view>
+				</view>
+				<view class="icon-x icon_w" bindtap="hide"></view>
+			</view>
+		</view>
+		<!-- 反馈弹窗end -->
+
+		<!-- 评论弹窗--点击小点点 -->
+		<view class="backConment" hidden="{{flag_c}}" bindtap="hide_c">
+			<view class="show_con">
+				<view class="title_con">您无法评论?</view>
+				<view>很抱歉,只有本班同学可评论,您要申请加入班级吗?</view>
+				<view class="btn_con">
+					<view class="look_btn" bindtap="hide_c">再看看</view>
+					<view class="join_btn" bindtap="JoinClass">申请加入</view>
+				</view>
+			</view>
+		</view>
+		<!-- 编辑 删除评论 -->
+		<view class="backWindow1" hidden="{{pl}}"  bindtap="hide_pl">
+			<view class="backWindow" >
+				<view class="itemBack" bindtap="editCards_pl" wx:if="{{isLOU == 2}}">
+					<image src="/static/images/edit.png"></image>
+					<view>编辑评论</view>
+				</view>
+				<view class="itemBack" bindtap="delCard_pl">
+					<image src="/static/images/delte.png"></image>
+					<view>删除评论</view>
+				</view>
+				<view class="icon-x icon_w" bindtap="hide"></view>
+			</view>		
+		</view>
+		<!-- 删除 -->
+		<view class="backConment" hidden="{{flag_del}}" >
+			<view class="show_con">
+				<view class="title_con title_del">删除评论</view>
+				<view class="del_con">您确定要删除该条评论吗?</view>
+				<view class="btn_con">
+					<view class="look_btn" bindtap="hide_del">取消</view>
+					<view class="join_btn" bindtap="yes_del">确定</view>
+				</view>
+			</view>
+		</view>
+		<!-- 评论弹窗--点击小点点end -->
+
+	</view>
+</view>
+<!-- 写评论内容 -->
+<view class="editCom" hidden="{{contentIpt}}">
+	<view class="top_t">
+		<view class="icon-x icon_e" bindtap="tijaofabu"></view>
+		<view class="title_e">评论</view>
+		<view class="{{ipntCont==''?'btn_e btn_e_spc':'btn_e'}}" bindtap="fabupinglun">发布</view>
+	</view>
+	<textarea class="bot_t" placeholder="请至少输入 10 个字" value="{{ipntCont}}" focus="{{is_focus}}" bindinput="ipntContBtn" bindfocus="foucus" bindblur="blur"></textarea>
+	<view class="bot_tt" style="bottom:{{bottom}}px">{{ipntCont.length}}/126</view>
+	<!-- <image class="smile" style="bottom:{{bottom}}px" src="/static/images/smile.png" catchtap="emojiShowHide" ></image> -->
+</view>
+
+<!-- 写评论内容--回复  -->
+<view class="editCom" hidden="{{contentIpt2}}">
+	<view class="top_t">
+		<view class="icon-x icon_e" bindtap="tijaofabu2"></view>
+		<view class="title_e">回复</view>
+		<view class="btn_e" bindtap="fabupinglun2">回复</view>
+	</view>
+	<textarea class="bot_t" placeholder="请至少输入 10 个字" value="{{ipntCont}}" focus="{{is_focus}}" bindinput="ipntContBtn"></textarea>
+</view>
+<!-- 写评论内容end ipntCont -->

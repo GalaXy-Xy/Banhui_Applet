@@ -1,0 +1,54 @@
+<!--pages/del/del.wxml-->
+
+<view class="del">
+	<view class="del-top">
+		<block class="flex_box">
+			<view class="flex1" wx:if="{{informdata.inform_hint==0}}">
+					<!-- <view wx:else class="flex_2">{{}}</view> -->
+					<view class="flex_1">{{informdata.bhuser.user_nickname}}:
+						<text class="floors">{{informdata.comment.comment_replyfloor}}楼</text>
+						<view class="flex_2">{{informdata.comment == null ? data:informdata.comment.comment_content}}</view>
+						<!-- <image src="{{src + informdata.bhuser1.user_avatar}}"></image> -->
+					</view>
+			</view>
+			<view class="flex1"  wx:if="{{informdata.inform_hint==1}}">
+				<view class="flex_2">{{informdata.bhuser1.user_nickname}}:{{informdata.bhpost.post_content}}
+					<!-- <image src="{{src + informdata.bhuser1.user_avatar}}"></image> -->
+				</view>
+				<view class="flex_1">您的评论已被管理员{{informdata.bhuser.user_nickname}}删除</view>
+			</view>
+			<view class="flex1"  wx:if="{{informdata.inform_hint==3}}">
+				<view wx:if="{{informdata.bhuser.user_role==2}}">您已被<text>"{{informdata.bhuser.user_nickname}}"</text>从<text>{{informdata.bhclass.class_name}}班级</text>开除！
+					请遵守<text>《社区规范》</text>，谢谢您的理解与支持
+				</view>
+				<view wx:else >您已被管理员从{{informdata.bhclass.class_name}}班级开除！
+					请遵守<text>《社区规范》</text>，谢谢您的理解与支持
+				</view>
+			</view>
+			<view class="flex1"  wx:if="{{informdata.inform_hint==2}}">
+				<!-- <view class="flex">评论内容：{{informdata.comment.comment_content}}</view> -->
+				<view class="flex_2">您在<text>{{informdata.bhpost.post_content}}</text>下的评论已被删除</view>
+				<view  class="flex_1">您的评论已被管理员{{informdata.bhuser.user_nickname}}删除</view>
+			</view>
+			<view class="flex1"  wx:if="{{informdata.inform_hint==4}}">
+				<view class="flex_2">{{informdata.bhuser1.user_nickname}}:{{informdata.bhpost.post_content}}
+					<!-- <image src="{{src + informdata.bhuser1.user_avatar}}"></image> -->
+				</view>
+				<view class="flex_1">您所在的班级{{informdata.bhclass.class_name}}已被注销</view>
+			</view>
+			<view  class="flex1"  wx:if="{{informdata.inform_hint==5}}">
+				<view class="flex_2">{{informdata.bhuser1.user_nickname}}:{{informdata.bhpost.post_content}}
+					<!-- <image src="{{src + informdata.bhuser1.user_avatar}}"></image> -->
+				</view>
+				<view class="flex_1">您发表的言论涉嫌广告骚扰,请遵守<text>《社区规范》</text>，谢谢您的理解与支持</view>
+			</view>
+			<view  class="flex1"  wx:if="{{informdata.inform_hint==6}}">
+				<view class="flex_2">{{informdata.bhuser1.user_nickname}}:{{informdata.bhpost.post_content}}
+					<!-- <image src="{{src + informdata.bhuser1.user_avatar}}"></image> -->
+				</view>
+				<view class="flex_1">您发表的言论涉嫌内容低俗,请遵守<text>《社区规范》</text>，谢谢您的理解与支持</view>
+			</view>
+		</block>
+
+	</view>
+</view>

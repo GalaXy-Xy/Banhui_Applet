@@ -1,0 +1,14 @@
+<!--pages/packet/index.wxml-->
+<view class="container1">
+  <image src="/static/images/redpacket.png"></image>
+  <view class="backBox">
+    <view class="redPacket">
+      <view>*规则说明：每100</view>
+      <view>班币可以抢一个红包，数量不限，班币越多，红包越多！</view>
+      <view class="btn_red" bindtap="class_p">攒斑币</view>
+      <view wx:if="{{num != 12}}">我攒的斑币：{{user_gold}}</view>
+      <!-- 班长登录后显示 -->
+      <view wx:else >我和我的班级攒的斑币:{{user_gold + sum_gold}}</view>
+    </view>
+  </view>
+</view>

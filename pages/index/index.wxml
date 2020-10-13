@@ -1,0 +1,29 @@
+<view class="content">
+    <!-- 登录页面 -->
+    <view class="Login" hidden="{{isLogin}}">
+        <view class="top">
+            <!-- <icon class="icon-cancel" type="cancel" size="20" color="#afb6d3"></icon> -->
+            <text class="icon-x icon-cancel" bindtap="toggleLogin"></text>
+            <text class="title">登录</text>
+        </view>
+        <view class="center">
+            <view class="logo"></view>
+                <text class="center-title">班汇</text><view class="_br"></view>
+                <text class="center-tel">请使用手机号登录</text><view class="_br"></view>
+                <text class="center-agree">登录即代表阅读并同意<text class="spilce">服务协议</text>和<text class="spilce">隐私政策</text></text><view class="_br"></view>
+                <text class="center-num">{{phone}}</text>
+        </view>
+        <view class="button">
+            <button style="width:670rpx" class="btn" open-type="getUserInfo" bindgetuserinfo="Login1">一键登录</button>
+        </view>
+    </view>
+    <!--未登录 -->
+    <view class="NoLogin" hidden="{{login}}">
+        <view class="NoMyClassImg">
+            <image src="/static/images/comennt.png"></image>
+            <view class="NoJoin">请您登录后查看</view>
+            <!-- <button style="width:200rpx"  class="NoJoinBtn" open-type="getUserInfo" bindgetuserinfo="getUser">信息</button>  -->
+            <button style="width:200rpx"  class="NoJoinBtn" open-type="getPhoneNumber" bindgetphonenumber="getUserPhone">登录</button> 
+        </view>
+    </view>
+</view>

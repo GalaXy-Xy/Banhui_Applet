@@ -1,0 +1,25 @@
+<!--pages/createdCode/index.wxml-->
+<view class="createdCode">
+    <view class="title_p">
+        <view class="icon-x icon-p" bindtap="close"></view>
+        <view class="name_p">二维码</view>
+        <!--未选择默认是btn_p 有选择的图片是btn_sel -->
+        <view class="btn_p btn_sel" bindtap="download">下载</view>
+    </view>
+    <view class="uesr_code">
+      <view class="uesrImg"><image src="{{calssImg == 'https://banhui.yangrong4.top/kong'?'/static/images/NoImg.png':calssImg}}"></image></view>
+      <view class="userName">{{calssNmae}}</view>
+       <!-- <canvas class='canvas' canvas-id='canvas'></canvas> -->
+    </view>
+    <image class="Img_code" src="{{imagePath}}"></image>
+    <!-- <image bindtap="previewImg" mode="widthFix" src="{{imagePath}}"></image> -->
+    <view class="warning">
+      <view>扫描此二维码，加入我的班级</view>
+      <view>7天内有效（至10月8日）</view>
+    </view>
+    <view class="logo_code">
+      <image src="/static/images/logo.png"></image>
+      <text>斑汇</text>
+    </view>
+</view>
+ 

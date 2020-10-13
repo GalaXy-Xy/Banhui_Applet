@@ -1,0 +1,90 @@
+ <!-- 有内容 -->
+<view class="container1" wx:if="{{inform_mesg.length != 0}}">
+   
+    <!-- 用户头像 -->
+    <view class="SysMesg" wx:for="{{inform_mesg}}" wx:key="index" wx:for-item='item' data-postId="{{item.inform_postid}}" data-classid="{{item.inform_classid}}"  data-meg="{{item.inform_xq}}" data-hint="{{item.inform_hint}}" id="{{item.inform_id}}"  bindtap="nav">
+        <!-- 左侧个人信息 -->
+        <view class="SysImg">
+        <image src="{{item.bhuser.user_avatar ==''?'/static/images/NoUser.png' : src + item.bhuser.user_avatar}}"></image>
+        <view class="userInfo">
+        <block wx:if="{{item.inform_hint==0}}">
+            <view class="niceName">{{item.bhuser.user_nickname == ''?'班长小秘书':item.bhuser.user_nickname}}</view>
+            <view>{{item.inform_xq}}</view>
+        </block>
+        <block wx:if="{{item.inform_hint==1}}">
+         <view class="niceName">{{item.bhuser.user_nickname == ''?'班长小秘书':item.bhuser.user_nickname}}</view>
+            <view>{{item.inform_xq}}</view>
+        </block>
+        <block wx:if="{{item.inform_hint==2}}">
+         <view class="niceName">{{item.bhuser.user_nickname == ''?'班长小秘书':item.bhuser.user_nickname}}</view>
+            <view>{{item.inform_xq}}</view>
+        </block>
+        <block wx:if="{{item.inform_hint==3}}">
+         <view class="niceName">{{item.bhuser.user_nickname == ''?'班长小秘书':item.bhuser.user_nickname}}</view>
+            <view>您已被"{{item.inform_xq}}"班级开除！</view>
+        </block>
+        <block wx:if="{{item.inform_hint==4}}">
+         <view class="niceName">{{item.bhuser.user_nickname == ''?'班长小秘书':item.bhuser.user_nickname}}</view>
+            <view>您所在的班级{{item.inform_xq}}已被注销</view>
+        </block>
+        <block wx:if="{{item.inform_hint==5}}">
+         <view class="niceName">{{item.bhuser.user_nickname == ''?'班长小秘书':item.bhuser.user_nickname}}</view>
+            <view>{{item.inform_xq}}</view>
+        </block>
+        <block wx:if="{{item.inform_hint==6}}">
+         <view class="niceName">{{item.bhuser.user_nickname == ''?'班长小秘书':item.bhuser.user_nickname}}</view>
+            <view>{{item.inform_xq}}</view>
+        </block>
+                <!-- <view wx:for="{{cont}}">{{item.content}}</view> -->
+        </view>
+        
+        </view>
+        <!-- 右侧时间戳 -->
+        <view class="{{item.inform_read == 1?'time active' :'time'}}">{{item.inform_date}}</view>
+    </view>
+  
+    <!-- 没有了 -->
+    <view class="NoClassContent">
+        <image src="/static/images/fly.png"></image>
+        <text>下面...下面没有了</text>
+        <image class="reserve" src="/static/images/fly.png"></image>
+    </view>
+
+
+</view>
+    <!-- 暂无内容 -->
+    <view class="NoContent" wx:else>
+        <image src="/static/images/comennt.png"></image>
+        <text>暂无内容</text>
+    </view>
+    <!-- 系统消息 -->
+    <!-- 被删贴 -->
+    <!-- <view class="romove_t" hidden="{{flag}}" bindtap="hide">
+        <view class="title_r">系统消息</view>
+        <view class="h_romove">
+            <view>
+                <text class="author">赵旻屿:</text>
+                <text class="floor">22楼</text>
+            </view>
+            <view class="c_remove">这里是我被删除的文字，内容已经被删除，这里只为用户提示，不能点击，最多三行，超出部分省略。这里是我被删除的文字，内容已经被删…</view>
+            <view class="t_remove">2020.7.22</view>
+        </view>
+        <view class="s_remove">您发表的言论涉嫌广告骚扰已被删除。若近期多次违规，您的账号可能受到处罚，请遵守《社区规范》，谢谢您的理解与支持。</view>
+        <view class="icon-x" bindtap="hide"></view>
+    </view> -->
+    <!-- 被开除 -->
+    <!-- <view class="expel" hidden="{{flag_expel}}" bindtap="hide">
+        <view class="title_r">系统消息</view>
+        <view class="s_expel">您已被管理员从“xxxxxx”班级开除！请遵守《社区规范》，谢谢您的理解与支持。</view>
+        <view class="icon-x" bindtap="hide"></view>
+    </view> -->
+    <!-- 班级被注销 -->
+    <view class="expel "  hidden="{{flag_zx}}" bindtap="hide">
+        <view class="title_r">系统消息</view>
+        <view class="s_cancel">您所在班级“xxxxxx”已经被注销。</view>
+        <view class="icon-x" bindtap="hide"></view>
+    </view>
+
+
+
+

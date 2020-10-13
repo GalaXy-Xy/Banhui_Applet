@@ -1,0 +1,64 @@
+<view class="container1">
+    <view class="title_p">
+      <view class="icon-cheveron-left icon-p"></view>
+      <view class="name_p">相册</view>
+      <!--未选择默认是btn_p 有选择的图片是btn_sel -->
+      <view class="btn_p btn_sel ">确定</view>
+    </view>
+    <!-- 选择框默认是Noselected 选择的是seleted_p -->
+    <view class="img_p">
+      <image src="/static/images/人物1.png"></image>
+      <!-- 选择框 -->
+      <view class="Noselected seleted_p">1</view>
+    </view>
+    <view class="img_p">
+      <image src="/static/images/人物1.png"></image>
+           <!-- 选择框 -->
+      <view class="Noselected seleted_p">2</view>
+    </view>
+    <view class="img_p">
+      <image src="/static/images/人物1.png"></image>
+           <!-- 选择框 -->
+      <view class="Noselected"></view>
+    </view>
+    <view class="img_p">
+      <image src="/static/images/人物1.png"></image>
+           <!-- 选择框 -->
+      <view class="Noselected"></view>
+    </view>
+    <view class="img_p">
+      <image src="/static/images/人物1.png"></image>
+           <!-- 选择框 -->
+      <view class="Noselected"></view>
+    </view>
+    <view class="img_p">
+      <image src="/static/images/人物1.png"></image>
+           <!-- 选择框 -->
+      <view class="Noselected"></view>
+    </view>
+    <view class="img_p">
+      <image src="/static/images/人物1.png"></image>
+           <!-- 选择框 -->
+      <view class="Noselected"></view>
+    </view>
+    <view class="img_p">
+      <image src="/static/images/人物1.png"></image>
+           <!-- 选择框 -->
+      <view class="Noselected"></view>
+    </view>
+    <view class="img_p">
+      <image src="/static/images/人物1.png"></image>
+           <!-- 选择框 -->
+      <view class="Noselected"></view>
+    </view>
+    <view class="img_p">
+      <image src="/static/images/人物1.png"></image>
+           <!-- 选择框 -->
+      <view class="Noselected"></view>
+    </view>
+    <view class="img_p">
+      <image src="/static/images/人物1.png"></image>
+           <!-- 选择框 -->
+      <view class="Noselected"></view>
+    </view>
+</view>

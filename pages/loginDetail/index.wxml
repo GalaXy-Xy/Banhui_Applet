@@ -1,0 +1,144 @@
+
+<view class="containers">
+    <!-- 头部--个人信息区域 -->
+    <view class="top-user">
+      <!-- 左 -->
+      <view class="top-user-left">
+        <image class="top-left-img" src="{{src + userImg }}"></image>
+        <text class="top-name">{{nickename}}\n<text class="top-time">{{time}}</text></text>
+      </view>
+      <!-- 右--小点点 -->
+      <view class="top-user-right" bindtap="show">
+        <view class="cirle-right"></view>
+        <view class="cirle-right"></view>
+        <view class="cirle-right"></view>
+      </view>
+    </view>
+    <!-- 头部--个人信息区域end -->
+
+    <!-- 图片区域 -->
+    <view class="content-img" wx:for="{{ImgList}}"  wx:key = "index" hidden="{{isImg}}">
+      <image class="content-img3" src="{{src + item.post_imgurl }}"></image>
+      <!-- <image src="/static/images/detailImg2.png"></image> -->
+    </view>
+    <!-- 图片区域end -->
+
+    <!-- 正文-文字区域 -->
+    <view class="content-text">
+      {{content}}
+    </view>
+    <!-- 正文-文字区域end -->
+
+    <!-- 底部-个人信息区域 -->
+    <view class="bot-user" wx:if="{{num_login==1}}" >
+      <image class="bot-img" src="{{calssImg}}"></image>
+      <text class="bot-text">班级:{{calssName}}</text>
+    </view>
+    <!-- 底部-个人信息区域end -->
+
+    <!-- 评论模块 -->
+    <view class="container_con"> 
+          <!-- 头部标题 -->
+          <view class="top-title">
+              <view class="left-top-title">
+                  <text class="{{seleted==1?'allSelect active':'allSelect allSelectApc'}}" data-num="1" bindtap="seletednow">全部</text>
+                  <text class="allNum">{{lengthAll}}</text>
+              </view>
+              <view class="right-top-title">
+                  <text class="{{seleted==2?'onlyHost active':'onlyHost'}}"  data-num="2" bindtap="seletednow" >只看楼主</text>
+                  <text class="onlyHostNum">{{onlylength}}</text>
+              </view>
+          </view>
+          <!-- 头部标题end -->
+
+          <!-- 正文区域 -->
+              <!-- 根据display：none控制有无评论内容 -->
+              <!-- 有评论内容 -->
+          <view class="content-comennt" wx:for="{{commentAll}}" wx:key="index">
+              <!-- 个人信息 -->
+              <view class="userInfo-comennt" >
+                <view class="top-user">
+                    <!-- 左 -->
+                    <view class="top-user-left" >
+                      <image class="top-left-img" src="{{src + item.bhuser.user_avatar}}"></image>
+                      <text class="top-name">{{item.bhuser.user_nickname}}\n<text class="top-time">{{item.comment_replyfloor}}楼</text><text class="{{item.comment_isOp ==1?'top-time':'top-time top-time_spc'}}">{{item.comment_isOp ==1?'楼主':''}}</text></text>
+                    </view>
+                   
+                    <!-- 右 bindtap="show_c"-->
+                    <view class="top-user-right" >
+                      <view class="cirle-right"></view>
+                      <view class="cirle-right"></view>
+                      <view class="cirle-right"></view>
+                    </view>
+                </view>
+              </view>
+              <!-- 评论内容 -->
+              <view class="content-comoont">
+                  {{item.comment_content}}
+              <!-- 时间 -->
+              <view class="time-comment">
+                {{item.comment_createtime}}
+              </view>
+          </view>
+
+          <!-- 暂无评论内容 -->
+          <view class="NoComennt" style="display:none">
+              <view class="NoComenntImg"><image src="/static/images/comennt.png"></image></view> 
+              <view class="NoComenntText">还没有人评论哦</view>
+          </view>
+          <!-- 正文区域end -->
+
+    </view>
+              <!-- 底部表单区域 -->
+          <view class="inp-commont">
+            <input placeholder="写评论" bindfocus="uploadIpt"></input>
+          </view>
+    <!-- 评论模块end -->
+
+    <!-- 反馈弹窗 -->
+    <view class="backWindow" hidden="{{flag}}">
+      <view class="itemBack"  bindtap="editCards">
+        <image src="/static/images/edit.png"></image>
+        <view>编辑帖子</view>
+      </view>
+      <view class="itemBack" bindtap="delCard">
+        <image src="/static/images/delte.png"></image>
+        <view>删除帖子</view>
+      </view>
+
+      <!-- <view class="itemBack">
+        <image src="/static/images/cancel.png"></image>
+        <view>开除</view>
+      </view>
+      <view class="itemBack">
+        <image src="/static/images/shutUp.png"></image>
+        <view>禁言</view>
+      </view> -->
+      <view class="icon-x icon_w" bindtap="hide"></view>
+    </view>
+    <!-- 反馈弹窗end -->
+
+    <!-- 评论弹窗--点击小点点 -->
+    <view class="backConment" hidden="{{flag_c}}" bindtap="hide_c" >
+      <view class="show_con">
+          <view class="title_con">您无法评论?</view>
+          <view>很抱歉,只有本班同学可评论,您要申请加入班级吗?</view>
+          <view class="btn_con">
+              <view class="look_btn" bindtap="hide_c">再看看</view> 
+              <view class="join_btn" bindtap="JoinClass">申请加入</view> 
+          </view>
+      </view>
+    </view>
+    <!-- 评论弹窗--点击小点点end -->
+
+</view>
+</view>
+   <!-- 写评论内容 -->
+    <view class="editCom" hidden="{{contentIpt}}"> 
+        <view class="top_t">
+          <view class="icon-x icon_e" bindtap="tijaofabu"></view>
+          <view class="title_e">评论</view>
+          <view class="btn_e" bindtap="fabupinglun">发布</view>
+        </view>
+        <textarea class="bot_t" value="{{ipntCont}}" bindinput="ipntContBtn"></textarea>
+    </view>

@@ -1,0 +1,6 @@
+<!--pages/classDescription/index.wxml-->
+<view class="desc">
+  <view class="title">班级描述</view>
+  <text class="icon-x icon-cancel"></text>
+  <view class="contentDesc">春风那个吹，战鼓那个擂，这里可以多些点，不限制字数，只要你能写，反正班级首页放不下可以省略，点击查看详情。</view>
+</view>

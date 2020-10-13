@@ -1,0 +1,145 @@
+.container{
+  padding: 20px;
+}
+/* tab切换 */
+.titleBar {
+  width: 375px;
+  height: 44px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between
+}
+.right-text{
+  width: 42px;
+  height: 18px;
+  color: #afb6d3;
+  font-family: "PingFangSC-Medium";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-right: 20px;
+  position: relative;
+}
+.left-text{
+  width: 42px;
+  height: 18px;
+  color: #afb6d3;
+  font-family: "PingFangSC-Medium";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-right: 20px;
+  position: relative;
+}
+/* 选中样式 */
+.active{
+  width: 40px;
+  height: 25px;
+  color: #5276f2;
+  font-family: "PingFangSC-Medium";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  margin-right: 20px;
+}
+.active::before{
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left:50%;
+  width: 5px;
+  height: 5px;
+  background-color: #5276f2;
+  border-radius: 50%;
+}
+.img-right{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  margin-right: 40px;
+}
+.img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+}
+/* 正文部分--有内容 */
+.classAll{
+  display: flex;
+  flex-direction: column;
+}
+.classItem{
+    flex: 1;
+    border-bottom: 1px solid #e1e6f8;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+.classMessage>image{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    vertical-align: top;
+}
+.classMessage>text:first-of-type{
+  color: #071756;
+  font-family: "PingFangSC-Medium";
+  font-size: 14px;
+  font-weight: 400;
+}
+.classMessage>text:last-of-type{
+  color: #afb6d3;
+  font-family: "PingFangSC-Regular";
+  font-size: 12px;
+  font-weight: 400;
+  position: absolute;
+  top: 40px;
+  left: 50px;
+}
+.joinClass{
+    width: 68px;
+    height: 30px;
+    background-color: #eef0fa;
+    border-radius: 20px;
+    color: #afb6d3;
+    font-family: "PingFangSC-Medium";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+}
+
+/* 正文部分--暂无内容 */
+.NoMyClass{
+  text-align: center;
+}
+.NoMyClassImg{
+  width: 110px;
+  height: 106px;
+  margin: 150px auto 10px;
+}
+.NoMyClassImg image{
+    width: 100%;
+    height: 100%;
+}
+.NoJoin{
+  color: #7689d2;
+  font-family: "PingFangSC-Regular";
+  font-size: 16px;
+}
+.NoJoinBtn{
+  width: 80px;
+  height: 30px;
+  background-color: #5276f2;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 30px;
+  margin-top: 15px;
+  margin-left: 12px;
+  color: #fff;
+  font-size: 14px;
+}

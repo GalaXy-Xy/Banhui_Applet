@@ -1,0 +1,88 @@
+<!--pages/login-content/index.wxml-->
+<view class="container1">
+    <!-- 标题切换 -->
+    <view class="titleBar">
+          <view class="left">
+            <text class="right-text active">全部</text>
+            <text class="left-text">已加入</text>
+          </view>
+        <view class="img-right">
+            <image class="img" src="../../static/images/红包.png" />
+        </view>
+    </view>
+    <!-- 标题切换end -->
+    <!-- 正文内容 -->
+    <view class="content">
+        <!-- 上部分 -->
+        <view class="top-content">
+            <!-- 上左半部分 -->
+            <view class="left-top">
+                <text class="left-top-text">到底是说不清出于哪种动机，想为自幼至今的日本动漫中出现出现出现出现出现</text>
+                <text class="left-bot-text">刚刚</text>
+            </view>
+            <!-- 上右半部分 -->
+            <view class="right-top">
+                <image class="right-img1" src="/static/images/人物1.png"/>
+            </view>
+        </view>
+        <!-- 下部分 -->
+        <view class="bot-content">
+            <image class="bot-img" src="/static/images/user1.png"></image>
+            <text class="bot-text">班级:班级的名字很长很长很长很长很长</text>
+        </view>
+    </view>
+    <view class="content">
+        <!-- 上部分 -->
+        <view class="top-content">
+            <!-- 上左半部分 -->
+            <view class="left-top">
+                <text class="left-top-text">到底也是说不清出于哪种。</text>
+                <text class="left-bot-text">2分钟前</text>
+            </view>
+            <!-- 上右半部分 -->
+            <view class="right-top">
+                <image class="right-img1" src="../../static/images/人物2.png"/>
+            </view>
+        </view>
+        <!-- 下部分 -->
+        <view class="bot-content">
+            <image class="bot-img" src="/static/images/user2.png"></image>
+            <text class="bot-text">班级:网红大妈妈</text>
+        </view>
+    </view>
+    <view class="content">
+        <!-- 上部分 -->
+        <view class="top-content">
+            <!-- 上左半部分 -->
+            <view class="left-top">
+                <text class="left-top-text">到底是说不清出于哪种动机，想为自幼至今的日本动漫中出现的女性角色做一个不算是太过严格</text>
+                <text class="left-bot-text">15个小时前</text>
+            </view>
+            <!-- 上右半部分 -->
+            <!-- <view class="right-top">上右半部分</view> -->
+        </view>
+        <!-- 下部分 -->
+        <view class="bot-content">
+            <image class="bot-img" src="/static/images/user3.png"></image>
+            <text class="bot-text">班级:点击班级去主页</text>
+        </view>
+    </view>
+    <view class="content">
+        <!-- 上部分 -->
+        <view class="top-content">
+            <!-- 上左半部分 -->
+            <view class="left-top">
+                <text class="left-top-text">到底是说不清出于哪种。</text>
+                <text class="left-bot-text">昨天</text>
+            </view>
+            <!-- 上右半部分 -->
+            <!-- <view class="right-top">上右半部分</view> -->
+        </view>
+        <!-- 下部分 -->
+        <view class="bot-content">
+            <image class="bot-img" src="/static/images/user4.png"></image>
+            <text class="bot-text">班级:王侯将相</text>
+        </view>
+    </view>
+    <!-- 正文内容end -->
+</view>

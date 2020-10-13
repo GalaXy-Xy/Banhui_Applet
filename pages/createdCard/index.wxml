@@ -1,0 +1,53 @@
+<view class="container2">
+    <view class="title_p">
+      <view class="icon-x icon-p" bindtap="close"></view>
+      <view class="name_p">创建帖子</view>
+      <!--未选择默认是btn_p 有选择的图片是btn_sel -->
+      <view class="{{btn_color?'btn_p':'btn_p btn_sel'}}" bindtap="uploadFile">发布</view>
+    </view>
+    <textarea class="con_card" value="{{content}}" bindinput="upload_c"></textarea>
+     <view class="{{upID?'photo_c':'photo_c_n'}} {{NullID?'photo_c':'photo_c_n'}} ">
+        <view class="item_p" wx:for="{{Srcs}}" wx:key="index">
+          <image src="{{item}}" data-index="{{index}}"></image>
+          <view class="icon-x icon-del" data-index="{{index}}" catchtap="hideImg"></view>  
+     </view>
+           <!-- 添加图片 -->
+        <view class="item_add" hidden="{{addimg}}" bindtap="img_up">
+            <image src="/static/images/addImg.png"></image>
+        </view>
+        <!-- <view class="item_p">
+          <image src="/static/images/人物1.png"></image>
+          <view class="icon-x icon-del"></view>  
+        </view> -->
+    </view>
+    
+      <view class="{{isShow?'smile':'smile1'}} ">
+        <image  src="/static/images/smile.png" catchtap="emojiShowHide" ></image>
+        <image src="{{Srcs.length <9?'/static/images/imgSelected.png':'/static/images/imgSelected2.png'}}" bindtap="img_up" ></image>
+      </view>
+   
+    <!-- 确认退出 -->
+    <view class="hihtID" hidden="{{upID}}">
+      <view class="h1">您要退出吗？</view>
+      <view class="h2 H2">未发布消息无法保存，退出后将全部删除</view>
+      <!-- <view class="h3 H3">号码，要珍惜这次机会哦~</view> -->
+      <view class="H4">
+        <view class="err" bindtap="stop">点错了</view>
+        <view class="yes" bindtap="submitID">退出</view>
+      </view>
+    </view>
+    <!-- 内容不足 -->
+    <view class="hihtId" hidden="{{NullID}}">
+      <view class="h1">内容不足10个字</view>
+      <view class="h2">输入10</view>
+      <view class="h3">个字以上再发布,请不要潜水哦~~</view>
+      <view class="h4 konw4" bindtap="konwNull">知道了</view>
+    </view>
+    <!-- 表情框 -->
+    <view class="comment-fixed" hidden="{{isShow}}">
+      <block wx:for="{{emojis}}" wx:key="index">
+          <view class="emoji-cell" data-emoji="{{item.char}}" data-oxf="{{item.emoji}}" catchtap="emojiChoose">{{item.char}}</view>
+      </block> 
+    </view>
+</view>
+

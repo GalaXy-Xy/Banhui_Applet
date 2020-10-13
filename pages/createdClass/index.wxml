@@ -1,0 +1,35 @@
+<view class='container'>
+     <!-- 标题切换 -->
+      <view class="titleBar">
+          <view class="left">
+            <text class="right-text">全部</text>
+            <text class="left-text">我加入的</text>
+            <text class="left-text active">我创建的</text>
+          </view>
+        <view class="img-right">
+            <image class="img" src="../../static/images/红包.png" />
+        </view>
+      </view>
+      <!-- 正文部分 -->
+        <!-- 有内容 -->
+      <view class="classAll"  >
+        <view class="classItem">
+              <!-- 左侧区域 -->
+              <view class="classMessage">
+                <image  src="/static/images/classAll1.png"></image>
+                <text>大以巴狼突击队大以巴狼突击队大以</text>
+                <text>38.9w条更新</text>
+              </view>
+        </view>
+        <view class="notice">*一个账号暂时只支持创建一个班级</view>
+      </view>
+
+        <!-- 暂无内容 -->
+      <view class="NoCreated" style="display: none">
+            <view class="NoMyClassImg">
+                <image src="/static/images/comennt.png"></image>
+                <view class="NoJoin">未创建过班级</view>
+                <view class="NoJoinBtn">创建班级</view>
+            </view>
+      </view>
+</view>

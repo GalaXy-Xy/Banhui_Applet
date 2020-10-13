@@ -1,0 +1,35 @@
+.desc{
+  height: 100%;
+  border-radius: 40rpx;
+}
+.title{
+  color: #afb6d3;
+  font-family: "PingFangSC-Medium";
+  font-size: 32rpx;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 20rpx;
+}
+/* 字体图标 */
+.icon-x:before {
+  content: "\e900";
+}
+.icon-cancel{
+		font-family: 'iconfont';
+		font-style: normal;
+		width: 20rpx;
+		height: 20rpx;
+		position: absolute;
+		left: 44rpx;
+		top:  24rpx;
+		color:#afb6d3
+}
+/* 正文  */
+.contentDesc{
+  color: #071756;
+  font-family: "PingFangSC-Regular";
+  font-size: 32rpx;
+  font-weight: 400;
+  padding: 40rpx 40rpx 0;
+  box-sizing: border-box;
+}

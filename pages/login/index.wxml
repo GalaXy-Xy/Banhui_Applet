@@ -1,0 +1,97 @@
+<!--pages/login/index.wxml-->
+  <view class="container_login">
+    <!-- 标题切换 -->
+      <view class=" {{topNav>0?'topNav titleBar' :'titleBar'}}">
+          <view class="left">
+            <text class="{{seleted==1?'right-text active':'right-text'}}" data-num="1" bindtap="seletednow" >全部</text>
+            <text class="{{seleted==2?'left-text active':'left-text'}}" data-num="2" bindtap="seletednow">已加入</text>
+          </view>
+        <view class="img-right" bindtap="packet">
+            <image class="img" src="/static/images/hb.png" />
+        </view>
+      </view>
+    <!-- 标题切换end -->
+    <!-- 正文内容 --未发布内容 -->
+    <view class="Nocontent" hidden="{{NoAllCon}}">
+        <view class="Nocontent">
+          <image class="img-content" src="../../static/images/comennt.png" />
+          <text class="text-content">还没有人发布过帖子呢</text>
+        </view>
+    </view>
+      
+    <!-- 正文内容end -->
+    <!-- 正文内容 --已发布内容  -->
+    <view   class="{{seleted==1?'':'Allcontent'}}" hidden="{{AllCon}}">
+        <view class="content" wx:for="{{allContent}}" wx:key="index">
+            <!-- 上部分 -->
+            <view class="top-content" data-calssid="{{item.post_class.class_id}}"  data-classImg="{{item.post_class.class_avatar}}" data-className="{{item.post_class.class_name}}"  data-postid="{{item.post_id}}" bindtap="cardDesc">
+                <!-- 上左半部分 -->
+                <view class="{{item.post_postimg.length==0?'left-top':'left-top left-top-spc'}}">
+                    <view class="{{item.post_postimg.length==0?'left-top-text left-top-text-spc':'left-top-text'}}">{{item.post_content}}</view> 
+                    <view class="left-bot-text">{{item.post_createtime}}</view>
+                </view>
+                <!-- 上右半部分 -->
+                <view class="right-top"  wx:for= "{{item.post_postimg}}" wx:key="index" wx:if="{{index == 0}}">
+                    <image class="right-img1" src="{{ src + item.post_imgurl}}"/>
+                </view>
+            </view>
+            <!-- 下部分 -->
+            <view class="bot-content" data-calssid="{{item.post_class.class_id}}" bindtap="calssDesc">
+                <image class="bot-img" src="{{item.post_class.class_avatar == 'kong'? '/static/images/NoImg.png': src + item.post_class.class_avatar}}"></image>
+                <text class="bot-text">班级:{{item.post_class.class_name}}</text>
+            </view>
+        </view>
+       
+    </view>
+  
+      <!-- 正文内容 --已发布内容end  -->
+
+       <!-- 我加入页面 -->
+        <!-- 暂无内容 -->
+      <view class="NoMyClass" hidden="{{NojoinClass}}">
+          <view class="NoMyClassImg">
+              <image src="/static/images/comennt.png"></image>
+              <view class="NoJoin">未加入过班级</view>
+              <view class="NoJoinBtn" bindtap="gojion">去加入</view>
+          </view>
+      </view>
+          <!-- 有内容 -->
+      <view class="{{seleted==2?'':'MyClassAll'}}" hidden="{{joinClass}}">
+          <view class="Joinclass" >
+              <view class="content" wx:for="{{joinClas}}" wx:key="index">
+                <!-- 上部分 -->
+                <view class="top-content" data-calssid="{{item.post_class.class_id}}"  data-classImg="{{item.post_class.class_avatar}}" data-className="{{item.post_class.class_name}}"  data-postid="{{item.post_id}}" bindtap="cardDesc">
+                    <!-- 上左半部分 -->
+                    <view class="{{item.post_postimg.length==0?'left-top':'left-top left-top-spc'}}">
+                        <view class="{{item.post_postimg.length==0?'left-top-text left-top-text-spc':'left-top-text'}}">{{item.post_content}}</view> 
+                        <view class="left-bot-text">{{item.post_createtime}}</view>
+                    </view>
+                    <!-- 上右半部分 -->
+                    <view class="right-top"  wx:for= "{{item.post_postimg}}" wx:key="index" wx:if="{{index == 0}}">
+                        <image class="right-img1" src="{{ src + item.post_imgurl}}"/>
+                    </view>
+                </view>
+                <!-- 下部分 -->
+                <view class="bot-content" data-calssid="{{item.post_class.class_id}}" bindtap="calssDesc">
+                    <image class="bot-img" src="{{item.post_class.class_avatar == 'kong'? '/static/images/NoImg.png': src + item.post_class.class_avatar}}"></image>
+                    <text class="bot-text">班级:{{item.post_class.class_name}}</text>
+                </view>
+            </view>
+
+            <view class="classItem" wx:for="{{joinClas}}" wx:key="{{class_id}}" data-id="{{item.class_id}}" bindtap="created_J">
+                <!-- 左侧区域 -->
+                <!-- <view class="classMessage">
+                  <image  src="{{src_a + item.class_avatar}}"></image>
+                  <text>{{item.class_name}}</text>
+                  <text>{{item.banhui_post== null? 0 : item.banhui_post.post_comments}}条更新</text>
+                </view> -->
+                <!-- 右侧区域 -->
+                <!-- <view class="joinClass">
+                  已加入
+                </view> -->
+            </view>
+          </view>
+      </view>
+
+       <!-- 我加入页面end -->
+  </view>

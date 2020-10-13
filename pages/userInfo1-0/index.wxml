@@ -1,0 +1,110 @@
+<!--pages/userInfo1-0/index.wxml-->
+<view class="container">
+    <!-- logo区域 -->
+        <!-- 头像信息区域 -->
+    <view class="userImg">
+      <image src="{{showSrc?'/static/images/logo-white.png':src}}"></image>
+      <view class="NiceName">{{nikeName}}</view>
+      <view class="gender">
+        <image style="display:none" src="{{Gender==0?'':''}}"></image>
+        <view class="gens" hidden="{{nvtu}}">
+            <image class="sex_nv" src="/static/images/sex_nv.png"></image>
+            <text class="nv_wen">女</text>
+        </view>
+         <view class="gens nan" hidden="{{nantu}}">
+            <image class="sex_nv nan_tu" src="/static/images/sex_nan.png"></image>
+            <text class="nv_wen nan_wenzi">男</text>
+        </view>
+        <!-- <image src="{{Gender==1?'/static/images/sex-Man.png':''}}"></image>
+        <image src="{{Gender==2?'/static/images/sex-Wom.png':''}}"></image> -->
+        <text class="{{Gender==0?'xingzuo xingzuo1':'xingzuo'}}">{{xingzuo==''?'':xingzuo+'座'}}</text>
+        
+      </view>
+      <view class="{{xingzuo == '' && Gender== 0 ?'uesrID uesrID_spc':'uesrID'}}">ID:{{ID}}</view>
+       <!-- 图标 -->
+      <view class="icon-left icon-more-vertical" bindtap="show"></view>
+      <view class="icon-mail icon-Mail" bindtap="showMail"></view>
+    </view>
+    <!-- logo区域end -->
+
+    <!-- tab切换 -->
+    <view class="Tabs">
+      <text class="{{seleted==1?'tab active':'tab'}}" data-num="1" bindtap="seletednow">帖子</text>
+      <text class="{{seleted==2?'tab active':'tab'}}" data-num="2" bindtap="seletednow">班级</text>
+    </view>
+    <!-- tab切换end -->
+
+    <!-- 帖子内容 -->
+    <view class="{{seleted==1?'':'pageArticle'}}">
+      <!-- 暂无帖子 -->
+      <view class="NoComennt" hidden="{{NoCardMy}}">
+            <view class="NoComenntImg"><image src="/static/images/comennt.png"></image></view> 
+            <view class="NoComenntText">暂未创建过帖子</view>
+      </view>
+      <!-- 有帖子 -->
+      <view class="Articles"  hidden="{{Mycard}}">
+        <view class="content" wx:for="{{card_my}}" wx:key="index">
+                <!-- 上部分 -->
+                <view class="top-content">
+                    <!-- 上左半部分 -->
+                    <view class="{{item.post_postimg.length==0?'left-top':'left-top left-top-spc'}}">
+                        <view class="{{item.post_postimg.length==0?'left-top-text left-top-text-spc':'left-top-text'}}">{{item.post_content}}</view> 
+                        <view class="left-bot-text">{{item.post_createtime}}</view>
+                    </view>
+                    <!-- 上右半部分 -->
+                    <view class="right-top" wx:for= "{{item.post_postimg}}" wx:key="index" wx:if="{{index == 0}}" wx:for-item='i'>
+                        <image class="right-img1" src="{{ src_s + i.post_imgurl}}"/>
+                    </view>
+                </view>
+                <!-- 下部分 -->
+                <view class="bot-content" >
+                    <image class="bot-img" src="{{item.post_class.class_avatar == '' || item.post_class.class_avatar == 'kong'? '/static/images/NoImg.png':src_s + item.post_class.class_avatar}}"></image>
+                    <text class="bot-text">班级:{{item.post_class.class_name}}</text>
+                </view>
+        </view>
+      </view>
+    </view>
+    <!-- 帖子内容end -->
+
+    <!-- 班级内容 -->
+    <view class="{{seleted==2?'':'pageClass'}}">
+        <!-- 暂无班级 -->
+        <view class="NoClass" hidden="{{Noclass}}">
+            <view class="NoClassImg"><image src="/static/images/comennt.png"></image></view> 
+            <view class="NoClassText">暂未加入过班级</view>
+        </view>
+        <!-- 有班级 -->
+        <view class="ClassLists" hidden="{{class_join}}">
+            <view class="ClassList" wx:for="{{classAll}}" wx:key="index">
+                <view class="classInfo">
+                    <view class="classInfoImg"><image src="{{item.class_avatar == '' || item.class_avatar == 'kong'? '/static/images/NoImg.png':src_s + item.class_avatar}}"></image></view>
+                    <view class="classInfoMes">
+                        <view>{{item.class_name}}</view>
+                        <view>{{item.banhui_post == null? '0':item.banhui_post.post_comments}}条更新</view>
+                    </view>
+                </view>
+                <view class="joinClassBtn btnSpailce">已加入</view>
+            </view>
+            <view class="NoClassContent">
+                <image src="/static/images/fly.png"></image>
+                <text>下面...下面没有了</text>
+                <image class="reserve" src="/static/images/fly.png"></image>
+            </view>
+        </view>
+    </view>
+    <!-- 班级内容end -->
+
+    <!-- 编辑资料弹出层 -->
+    <view class="editProfile" hidden="{{flag}}" bindtap="hide">
+      <view  class="editText" bindtap="editUser"> 
+          <image  src="/static/images/edit.png"></image> 
+          <view>编辑资料</view>
+      </view>
+      <view class="exitText" bindtap="exit">
+          <image src="/static/images/exit.png"></image>
+          <view >退出登录</view>
+      </view>
+      <view class="icon-x icon-cancel" bindtap="hide"></view>
+    </view>
+    <!-- 编辑资料弹出层end -->
+</view>

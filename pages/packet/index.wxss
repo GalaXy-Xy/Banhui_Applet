@@ -1,0 +1,41 @@
+.container1{
+  width: 100%;
+  height: 1241rpx;
+}
+.container1 image{
+  width: 100%;
+  height: 812rpx;
+}
+.backBox{
+  background-color: #3B0743;
+  width: 100%;
+  height: 450rpx;
+  padding-left: 60rpx;
+  box-sizing: border-box;
+}
+.redPacket{
+  background-color: #f33f29;
+  width: 632rpx;
+  height: 380rpx;
+  margin-top: -16rpx;
+  padding: 0  60rpx;
+  padding-top: 92rpx;
+  box-sizing: border-box;
+  color: #fee0b8;
+  font-size: 28rpx;
+}
+.btn_red{
+  width: 510rpx;
+  height: 88rpx;
+  border-radius: 50rpx;
+  background-color: #fee0b8;
+  color: #5f3913;
+  font-size: 32rpx;
+  line-height: 88rpx;
+  text-align: center;
+}
+.redPacket view:last-child{
+  color: #fff;
+  text-align: center;
+  margin-top: 20rpx;
+}

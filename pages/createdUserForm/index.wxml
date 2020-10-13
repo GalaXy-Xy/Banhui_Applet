@@ -1,0 +1,51 @@
+<!--pages/createdClassForm/index.wxml-->
+<view class="container1">
+    <view class="classImg">
+      <image src="/static/images/NoImg.png"></image>
+      头像
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="className" bindtap="show_d">
+      昵称
+      <view class="classNameNum">234567890</view>
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="classID" bindtap="show_d">
+      ID
+      <view class="classNameNum">234567890</view>
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="classGender" bindtap="show">
+      性别未设置
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="classBir">
+      生日未设置
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="btnForm">保存</view>
+    <!--弹窗 -->
+    <view class="desc" hidden="{{flag_d}}" bindtap="hide_d">
+      <view class="title_d">
+          <view class="title">班级描述</view>
+          <view class="btn_desc " bindtap="hide_d">保存</view>
+      </view>
+      <text class="icon-x icon-cancel"></text>
+      <view class="contentDesc">春风那个吹，战鼓那个擂，这里可以多些点，不限制字数，只要你能写，反正班级首页放不下可以省略，点击查看详情。</view>
+    </view>
+    <!--性别弹窗 -->
+    <view class="SeleGen" hidden="{{flag}}" bindtap="hide">
+      <view class="gender_s">
+        <view class="wom">
+          <image src="/static/images/women.png"></image>
+          <text>女</text>
+        </view>
+        <view class="men">
+          <image src="/static/images/men.png"></image>
+          <text>男</text>
+        </view>
+      </view>
+
+      <view class="icon-x icon-gen" bindtap="hide"></view>
+    </view>
+</view>

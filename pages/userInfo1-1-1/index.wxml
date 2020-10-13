@@ -1,0 +1,170 @@
+<!--pages/userInfo/index.wxml-->
+<view class="uesrInfo">
+    <!-- 头像信息区域 -->
+    <view class="userImg">
+     <image src="{{showSrc?'/static/images/logo-white.png':src}}"></image>
+      <view class="NiceName">{{name}}</view>
+      <view class="gender">
+        <image src="{{Gender==0?'':''}}"></image>
+        <view class="gens" wx:if="{{showGen == 2}}">
+            <image class="sex_nv" src="/static/images/sex_nv.png"></image>
+            <text class="nv_wen">女</text>
+        </view>
+         <view class="gens nan" wx:if="{{showGen == 1}}">
+            <image class="sex_nv nan_tu" src="/static/images/sex_nan.png"></image>
+            <text class="nv_wen nan_wenzi">男</text>
+        </view>
+        <!-- <image src="{{Gender==1?'/static/images/sex-Man.png':''}}"></image>
+        <image src="{{Gender==2?'/static/images/sex-Wom.png':''}}"></image> -->
+        <text class="{{xingzuo==''?'xingzuo xingzuo1':'xingzuo'}}">{{xingzuo==''?'':xingzuo+'座'}}</text>
+      </view>
+    </view>
+    <!-- tab切换 -->
+      <!-- active控制选中标签 -->
+    <view class="Tabs">
+      <text class="{{seleted==1?'tab active':'tab'}}" data-num="1" bindtap="seletednow">班币</text>
+      <text class="{{seleted==2?'tab active':'tab'}}" data-num="2" bindtap="seletednow">帖子</text>
+      <text class="{{seleted==3?'tab active':'tab'}}" data-num="3" bindtap="seletednow">班级</text>
+    </view>
+    <!--tab切换end  -->
+
+    <!-- 班币排行页面 -->
+    <view class="{{seleted==1?'':'pageMoney'}}">
+        <!-- 列表区域 -->
+        <!-- 列表区域 -->
+        <view class="Lists" wx:for="{{class_benban}}" wx:key="index">
+            <!-- 排行 -->
+              <view class="{{banji_ALL.length>4?'RankFourlaster':'Rank'}}">
+                <block>
+                    <view wx:if="{{index+1 >=4 }}">{{index+1}}</view>
+                     <image src="/static/images/NO{{index+1}}.png" wx:if="{{index+1 <=3 }}"></image>
+                </block>
+                <!-- <block wx:elif="{{index == 2}}">
+                    <view hidden="{{Imgs}}">{{index+1}}</view>
+                     <image src="/static/images/NO2.png"></image>
+                </block>
+                <block wx:elif="{{index == 3}}">
+                    <view hidden="{{Imgs}}">{{index+1}}</view>
+                     <image src="/static/images/NO3.png"></image>
+                </block>
+                <block wx:else>
+                    <view>{{index+1}}</view> 
+                    <image src="/static/images/NO3.png" hidden="{{Imgs}}"></image>
+                </block> -->
+                
+               
+             </view>
+
+            <!-- 个人信息 -->
+            <view class="userInfoLists" wx:for="{{item.bhuser}}" wx:for-item="bhuser">
+              <view class="userInfoImg"><image src="{{bhuser.user_avatar ==''? '/static/images/logo-white.png' : API + bhuser.user_avatar}}"></image></view>
+              <view class="uesrInfoMessage">
+                  <view>{{bhuser.user_nickname}}</view>
+                  <view class="gens" wx:if="{{bhuser.user_gender == 2}}">
+                      <image class="sex_nv" src="/static/images/sex_nv.png"></image>
+                      <text class="nv_wen">女</text>
+                  </view>
+                  <view class="gens nan" wx:if="{{bhuser.user_gender == 1}}">
+                    <image class="sex_nv nan_tu" src="/static/images/sex_nan.png"></image>
+                    <text class="nv_wen nan_wenzi">男</text>
+                  </view>
+                  <!-- <view>
+                    <image src="{{showGen?'/static/images/sex-Wom.png':'/static/images/sex-Man.png'}}" hidden="{{NoGen}}"></image>
+                  </view> -->
+              </view>
+            </view>
+            <!-- 总数量 -->
+            <view class="SumFans" wx:for="{{item.bhuser}}" wx:for-item="bhuser">{{bhuser.user_gold}}</view>
+        </view>
+        <!-- 底部-个人排行信息 -->
+        <view class="RankUserInfo">
+                <!-- 排行 -->
+                <view class="MyRank">{{mingci==0?'-':mingci}}</view>
+                <!-- 个人信息 -->
+                <view class="userInfoLists">
+                  <view class="userInfoImg"><image src="{{showSrc?'/static/images/logo-white.png':src}}"></image></view>
+                  <view class="uesrInfoMessage">
+                      <view>{{name}}</view>
+                      <view class="gender">
+                          <image style="display:none" src="{{Gender==0?'':''}}"></image>
+                          <view class="gens"  wx:if="{{showGen == 2}}">
+                              <image class="sex_nv" src="/static/images/sex_nv.png"></image>
+                              <text class="nv_wen">女</text>
+                          </view>
+                          <view class="gens nan"  wx:if="{{showGen == 1}}">
+                              <image class="sex_nv nan_tu" src="/static/images/sex_nan.png"></image>
+                              <text class="nv_wen nan_wenzi">男</text>
+                          </view>
+                          <!-- <image src="{{Gender==1?'/static/images/sex-Man.png':''}}"></image>
+                          <image src="{{Gender==2?'/static/images/sex-Wom.png':''}}"></image> -->
+                          <!-- <text class="{{Gender==0?'xingzuo xingzuo1':'xingzuo'}}">{{xingzuo==''?'':xingzuo+'座'}}</text> -->
+        
+                      </view>
+                  </view>
+                </view>
+                <!-- 总数量 -->
+                <view class="MySumFans">{{banbi}}</view>
+        </view>
+    </view>
+    <!-- 班币排行页面end --> 
+
+    <!-- 帖子页面 -->
+    <view class="{{seleted==2?'':'pageArticle'}}">
+      <!-- 暂无帖子 -->
+      <view class="NoComennt" hidden="{{NoCardMy}}">
+            <view class="NoComenntImg"><image src="/static/images/comennt.png"></image></view> 
+            <view class="NoComenntText">暂未创建过帖子</view>
+      </view>
+      <!-- 有帖子 -->
+      <view class="Articles"  hidden="{{Mycard}}">
+        <view class="content" wx:for="{{card_my}}" wx:key="index">
+                <!-- 上部分 -->
+                <view class="top-content">
+                    <!-- 上左半部分 -->
+                    <view class="left-top">
+                        <text class="left-top-text">{{item.post_content}}</text>
+                        <text class="left-bot-text">{{item.post_createtime}}</text>
+                    </view>
+                    <!-- 上右半部分 -->
+                    <view class="right-top">
+                        <image class="right-img1" src="{{API + item.post_postimg[0].post_imgurl}}"/>
+                    </view>
+                </view>
+                <!-- 下部分 -->
+                <view class="bot-content" >
+                    <image class="bot-img" src="{{item.post_class.class_avatar == '' || item.post_class.class_avatar == 'kong'? '/static/images/NoImg.png':API + item.post_class.class_avatar}}"></image>
+                    <text class="bot-text">班级:{{item.post_class.class_name}}</text>
+                </view>
+        </view>
+      </view>
+    </view>
+    <!-- 帖子页面end -->
+
+    <!-- 班级页面 -->
+    <view class="{{seleted==3?'':'pageClass'}}" >
+        <!-- 暂无班级 -->
+        <view class="NoClass" hidden="{{Noclass}}">
+            <view class="NoClassImg"><image src="/static/images/comennt.png"></image></view> 
+            <view class="NoClassText">暂未加入过班级</view>
+        </view>
+        <!-- 有班级 -->
+        <view class="ClassLists" hidden="{{class_join}}">
+            <view class="ClassList" wx:for="{{classAll}}" wx:key="index">
+                <view class="classInfo">
+                    <view class="classInfoImg"><image src="{{item.class_avatar == '' || item.class_avatar == 'kong'? '/static/images/NoImg.png':API + item.class_avatar}}"></image></view>
+                    <view class="classInfoMes">
+                        <view>{{item.class_name}}</view>
+                        <view>{{item.banhui_post.post_comments}}条更新</view>
+                    </view>
+                </view>
+                <view class="joinClassBtn btnSpailce">已加入</view>
+            </view>
+            <view class="NoClassContent">
+                <image src="/static/images/fly.png"></image>
+                <text>下面...下面没有了</text>
+                <image class="reserve" src="/static/images/fly.png"></image>
+            </view>
+        </view>
+    </view>
+    <!-- 班级页面end -->
+</view>

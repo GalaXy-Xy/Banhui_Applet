@@ -1,0 +1,188 @@
+.container1{
+  padding: 40rpx;
+}
+.SysMesg{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 56rpx;
+  position: relative;
+}
+.SysImg image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin-right: 20rpx;
+}
+.SysImg{
+  display: flex;
+}
+.niceName{
+  color: #7689d2;
+  font-family: "PingFangSC-Medium";
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.Comnents{
+  color: #071756;
+  font-family: "PingFangSC-Regular";
+  font-size: 24rpx;
+}
+.time{
+  color: #afb6d3;
+  font-family: "PingFangSC-Regular";
+  font-size: 24rpx;
+}
+.active{
+  color: #afb6d3;
+  font-family: "PingFangSC-Regular";
+  font-size: 24rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.active::after{
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  background-color: #ff2851;
+  position: absolute;
+  top: 66rpx;
+  right: 15rpx;
+  border-radius: 50%;
+}
+.NoClassContent{
+  width: 100%;
+  height: 120rpx;
+  text-align: center;
+  line-height: 120rpx;
+}
+.NoClassContent image{
+  width: 40rpx;
+  height: 24rpx;
+}
+.NoClassContent text{
+  color: #afb6d3;
+  font-family: "PingFangSC-Regular";
+  font-size: 28rpx;
+  margin: 0 20rpx;
+  font-weight: 400;
+}
+.NoClassContent .reserve{
+  transform:scaleX(-1);
+}
+.NoContent{
+  width: 220rpx;
+  height: 212rpx;
+  margin: 0 auto;
+  margin-top: 50%;
+  text-align: center;
+}
+.NoContent image{
+  width: 100%;
+  height: 100%;
+}
+.NoContent text{
+  font-size: 32rpx;
+  color: #7689d2;
+}
+
+/* 系统消息 */
+.romove_t{
+  width: 100%;
+  height: 1200rpx;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  border: 30rpx 30rpx 0 0 ;
+  padding: 0 20rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fff;
+}
+/* 被删帖 */
+.title_r{
+  text-align: center;
+  color: #afb6d3;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+  margin-bottom: 80rpx;
+}
+.h_romove{
+  width: 100%;
+  height: 280rpx;
+  color: #afb6d3;
+  font-size: 32rpx;
+  padding: 20rpx 40rpx;
+  background-color: #f9f9ff;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+}
+ .author{
+  color: #000;
+  font-size: 28rpx;
+}
+.floor{
+  background-color: #eef0fa;
+  color: #afb6d3;
+  font-size: 20rpx;
+  margin-left: 20rpx;
+}
+.c_remove{
+  font-size: 28rpx;
+  color: #afb6d3;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.t_remove{
+  font-size: 28rpx;
+  color:  #afb6d3;
+}
+.s_remove{
+  width: 100%;
+  height: 268rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background-color: #eef0fa;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+}
+/* 关闭按钮 */
+.icon-x:before {
+  content: "\e903";
+  color: #afb6d3;
+  position: absolute;
+  top: 32rpx;
+  left: 40rpx;
+}
+/* 被开除 */
+.expel{
+  width: 100%;
+  height: 1200rpx;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  border: 30rpx 30rpx 0 0 ;
+  padding: 0 20rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fff;
+}
+.s_expel{
+  height: 110rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background-color: #eef0fa;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  color: #071756;
+}
+/* 班级被注销 */
+.s_cancel{
+  height: 110rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background-color: #eef0fa;
+  border-radius: 20rpx;
+  color: #071756;
+  font-size: 28rpx;
+}
+

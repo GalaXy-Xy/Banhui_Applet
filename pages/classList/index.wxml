@@ -1,0 +1,36 @@
+<!--pages/classList/index.wxml-->
+<view class="Lists">
+      <!-- 班长区域 -->
+  <scroll-view scroll-y="true" scroll-with-animation="{{true}}">
+      <view class="job">班长</view>
+      <view class="position" wx:for="{{list1}}" wx:key="user_id" data-user="{{item.bhuser}}" bindtap="millon">
+          <view class="Message splice" wx:for="{{item.bhuser}}" wx:for-item="bhuser" wx:key="index" >
+            <image src="{{ bhuser.user_avatar == '' ? '/static/images/logo-white.png' : src + bhuser.user_avatar }}"></image>
+            <text>{{bhuser.user_nickname}}</text>
+          </view>
+      </view>
+     
+      <!-- 副班长区域 -->
+      <view class="job">副班长<text>{{list.length}}</text></view>
+      <view class="position" wx:for="{{list}}"  wx:key="user_id" data-user="{{item.bhuser}}" bindtap="millon" >
+        <view class="Message" wx:for="{{item.bhuser}}" wx:for-item="bhuser" >
+          <image src="{{ bhuser.user_avatar =='' ? '/static/images/logo-white.png' : src + bhuser.user_avatar }}"></image>
+          <text>{{bhuser.user_nickname}}</text>
+           
+        </view>
+        <view wx:if="{{num_l != 12 }}" class="btn" data-index="index" data-index="index" data-mate="{{item.classmate_userid}}" catchtap="delClass">开除</view>
+       
+      </view>
+   
+    <!-- 同学区域 -->
+      <view class="job">同学<text>{{list_tx.length}}</text></view>
+      <view class="position" wx:for="{{list_tx}}" wx:key="user_id" data-user="{{item.bhuser}}" bindtap="millon" >
+        <view class="Message" wx:for="{{item.bhuser}}" wx:key="index" wx:for-item="bhuser">
+              <image src="{{ bhuser.user_avatar== '' ?'/static/images/logo-white.png':src + bhuser.user_avatar}}"></image>
+              <text>{{bhuser.user_nickname}}</text>
+        </view>
+        <view wx:if="{{num_l != 12 }}"  class="btn"  data-index1="index" data-mate="{{item.classmate_userid}}" catchtap="delClass" >开除</view>
+       
+      </view>
+  </scroll-view>
+</view>

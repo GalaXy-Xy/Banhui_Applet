@@ -1,0 +1,56 @@
+<!--pages/createdClassForm/index.wxml-->
+<view class="container1">
+    <view class="classImg" bindtap="uploadImg">
+      <image src="{{src=='' || src=='kong'?'/static/images/NoImg.png':src}}"></image>
+      班级头像
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="className" bindtap="show_n">
+      班级名称
+      <view class="classNameNum">{{classTitle}}</view>
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="classDesc" bindtap="show_d">
+      输入班级描述
+      <view class="classNameNum">{{desc}}</view>
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="classCode" bindtap="show_c">
+      生成二维码
+      <text class="icon-right icon-chevron-right icon-right-spc"></text>
+    </view>
+    <view class="btnForm" bindtap="created">修改班级</view>
+    <!--弹窗 -->
+    <!-- 班级名称 -->
+    <view class="desc" hidden="{{flag_n}}">
+      <view class="title_d">
+          <view class="title">班级名称</view>
+          <view class="btn_desc " bindtap="hide_n">保存</view>
+      </view>
+      <text class="icon-x icon-cancel" bindtap="hide_tit"></text>
+      <textarea class="contentDesc" value="{{classTitle}}" bindinput="focus_n" maxlength="-1" focus="true" bindblur="blur"></textarea>
+      <view class="bot_tt" style="bottom:{{bottom}}px">{{classTitle.length}}/16</view>
+    </view>
+    <!-- 班级描述 -->
+    <view class="desc" hidden="{{flag_d}}">
+      <view class="title_d">
+          <view class="title">班级描述</view>
+          <view class="btn_desc " bindtap="hide_d">保存</view>
+      </view>
+      <text class="icon-x icon-cancel" bindtap="exit_d"></text>
+      <textarea class="contentDesc" value="{{desc}}" bindinput="focus_d" maxlength="-1"></textarea> 
+    </view>
+     <!-- 二维码提示框 -->
+    <view class="code_class" hidden="{{flag_code}}" bindtap="hide_c" >二维码已下载到本地</view>
+
+  <!-- 退出提示框 -->
+    <view class="hihtID" hidden="{{exit}}">
+      <view class="h1">您要退出吗？</view>
+      <view class="h2">未创建的班级信息无法保存，退出后将全部删除</view>
+      <!-- <view class="h3 H3">号码，要珍惜这次机会哦~</view> -->
+      <view class="H4">
+        <view class="err" bindtap="stop">点错了</view>
+        <view class="yes" bindtap="submitID">退出</view>
+      </view>
+    </view>
+</view>

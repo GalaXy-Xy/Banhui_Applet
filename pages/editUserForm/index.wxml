@@ -1,0 +1,114 @@
+<!--pages/createdClassForm/index.wxml-->
+<view class="container1">
+    <view class="classImg" bindtap="show_img">
+      <image src="{{showSrc?src:'/static/images/NoImg.png'}}"></image>
+      <!-- <image src="{{src}}"></image> -->
+      头像
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="className" bindtap="show_d">
+      昵称
+      <view class="classNameNum">{{nikeName}}</view>
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="classID" bindtap="show_ID">
+      ID
+      <view class="classNameNum">{{uploadID}}</view>
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="classGender" bindtap="show">
+     {{showGen==0?showCon:'性别'}}
+     <view class="classNameNum">{{showGen==0?'':showCon}}</view> 
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="classBir" bindtap="show_bir">
+      {{selBir?'生日未设置':'生日'}} 
+      <view class="classNameNum"> {{selBir?'':year+'年'+month+'月'+day+'日'}} </view>
+      <text class="icon-right icon-chevron-right"></text>
+    </view>
+    <view class="btnForm" bindtap="formSub">保存</view>
+
+    <!--弹窗 -->
+    <!-- 昵称 -->
+    <view class="desc" hidden="{{flag_d}}" >
+      <view class="title_d">
+          <view class="title">昵称</view>
+          <view class="btn_desc " bindtap="hide_n">保存</view>
+      </view>
+      <text class="icon-x icon-cancel" bindtap="hide_name"></text>
+      <input type="text" style="height:100rpx" class="contentDesc" value="{{nikeName}}" bindinput="uploadName"></input>
+    </view>
+    <!-- ID -->
+    <view class="desc" hidden="{{flag_ID}}" >
+      <view class="title_d">
+          <view class="title">ID</view>
+          <view class="btn_desc btn_ID " bindtap="hide_d">保存</view>
+      </view>
+      <text class="icon-x icon-cancel" bindtap="hide_ID"></text>
+      <input type="text" style="height:100rpx" class="contentDesc" value="{{uploadID}}" bindinput="uploadID"></input>
+    </view>
+    <!-- id被占用 -->
+    <view class="hihtId" hidden="{{hasID}}">
+      <view class="h1">此ID已被人占用了</view>
+      <view class="h2">这个ID</view>
+      <view class="h3">号太抢手了，换一个别的再试试吧~</view>
+      <view class="h4" bindtap="konw">知道了</view>
+    </view>
+    <!-- 确认修改id -->
+    <view class="hihtID" hidden="{{upID}}">
+      <view class="h1">确认使用此ID号吗？</view>
+      <view class="h2">每年只有一次机会修改ID</view>
+      <view class="h3 H3">号码，要珍惜这次机会哦~</view>
+      <view class="H4">
+        <view class="err" bindtap="stop">点错了</view>
+        <view class="yes" bindtap="submitID">确认</view>
+      </view>
+    </view>
+    <!-- 无效修改 -->
+    <view class="hihtId" hidden="{{NullID}}">
+      <view class="h1">无法修改ID号</view>
+      <view class="h2">每年只有一次机会修改ID</view>
+      <view class="h3">号太抢手了,请明年再来吧~</view>
+      <view class="h4 konw4" bindtap="konwNull">知道了</view>
+    </view>
+    <!--性别弹窗 -->
+    <view class="SeleGen" hidden="{{flag}}" bindtap="hide_g">
+      <view class="gender_s">
+        <!-- 女 -->
+        <view class="wom" data-sex="2" bindtap="sel_gen">
+          <image src="/static/images/women.png"></image>
+          <text>女</text>
+        </view>
+        <!-- 男 -->
+        <view class="men" data-sex="1" bindtap="sel_gen">
+          <image src="/static/images/men.png"></image>
+          <text>男</text>
+        </view>
+      </view>
+      <!-- 关闭按钮 -->
+      <view class="icon-x icon-gen" bindtap="hide"></view>
+    </view>
+    <!-- 生日 -->
+    <view class="selBir" hidden="{{flag_bir}}">
+      <view class="title_d">
+          <view class="title t_bir">生日</view>
+          <view class="btn_desc" bindtap="hide_bir">保存</view>
+      </view>
+      <text class="icon-x icon-cancel"  bindtap="hide_bir"></text>
+      <picker-view indicator-class="birSel" indicator-style="height: 50px;" style="width: 100%; height: 580px;" value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+          <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+</view>
+<view class="suc_up" hidden="{{suc_up}}">设置成功</view>
+<view class="suc_fa" hidden="{{suc_fa}}">设置失败</view>
+<view class="suc_fa" hidden="{{sub_suc}}">保存成功</view>
+<view class="suc_fa" hidden="{{sub_fail}}">保存失败</view>

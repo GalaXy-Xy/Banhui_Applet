@@ -1,0 +1,64 @@
+<!--pages/selectedClass/index.wxml-->
+<view class="container">
+    <!-- 标题切换 -->
+    <view class="titleBar">
+          <view class="left">
+            <text class="right-text">全部</text>
+            <text class="left-text active">我加入的</text>
+            <text class="left-text">我创建的</text>
+          </view>
+        <view class="img-right">
+            <image class="img" src="../../static/images/红包.png" />
+        </view>
+    </view>
+     <!-- 正文部分 -->
+      <!-- 有内容 -->
+    <view class="MyClassAll"  >
+        <view class="classAll">
+          <view class="classItem">
+              <!-- 左侧区域 -->
+              <view class="classMessage">
+                <image  src="/static/images/classAll1.png"></image>
+                <text>蓝海中学初三一班</text>
+                <text>38.9w条更新</text>
+              </view>
+              <!-- 右侧区域 -->
+              <view class="joinClass">
+                已加入
+              </view>
+          </view>
+          <view class="classItem">
+              <!-- 左侧区域 -->
+              <view class="classMessage">
+                <image  src="/static/images/classAll2.png"></image>
+                <text>蓝海中学初三一班</text>
+                <text>38.9w条更新</text>
+              </view>
+              <!-- 右侧区域 -->
+              <view class="joinClass">
+                已加入
+              </view>
+          </view>
+          <view class="classItem">
+              <!-- 左侧区域 -->
+              <view class="classMessage">
+                <image  src="/static/images/classAll3.png"></image>
+                <text>蓝海中学初三一班</text>
+                <text>38.9w条更新</text>
+              </view>
+              <!-- 右侧区域 -->
+              <view class="joinClass">
+                已加入
+              </view>
+          </view>
+        </view>
+    </view>
+      <!-- 暂无内容 -->
+    <view class="NoMyClass" style="display : none">
+        <view class="NoMyClassImg">
+            <image src="/static/images/comennt.png"></image>
+            <view class="NoJoin">未加入过班级</view>
+            <view class="NoJoinBtn">去加入</view>
+        </view>
+    </view>
+</view>

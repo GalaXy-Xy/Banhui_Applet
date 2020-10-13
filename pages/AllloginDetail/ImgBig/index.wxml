@@ -1,0 +1,10 @@
+
+<view class="container">
+    <view class="sums">
+      <text>1</text>
+      <text>/</text>
+      <text>2</text>
+      <image src="/static/images/download.png"></image>
+    </view>
+    <view><image class="Imgs" src="/static/images/人物1.png"></image></view>
+</view>

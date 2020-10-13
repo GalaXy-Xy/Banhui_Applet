@@ -1,0 +1,59 @@
+.Lists{
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+}
+.job{
+  color: #7689d2;
+  font-family: "PingFangSC-Regular";
+  font-size: 28rpx;
+  font-weight: 400;
+  margin-top: 25rpx;
+}
+.job>text{
+  color: #afb6d3;
+  font-family: "PingFangSC-Regular";
+  font-size: 28rpx;
+  font-weight: 400;
+  margin-left: 10rpx;
+}
+.Message{
+  height: 160rpx;
+  line-height: 160rpx;
+ 
+}
+.splice{
+  border-bottom: 0;
+}
+.Message>image{
+  border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: middle;
+  /* margin-top: 20px; */
+}
+.Message>text{
+  margin-left: 30rpx;
+}
+.position{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e1e6f8;
+}
+.Lists .position:last-of-type{
+  border-bottom: 0;
+}
+.btn{
+  /* display: inline-block; */
+  width: 168rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  border-radius: 80rpx;
+  background-color: #eef0fa;
+  color: #afb6d3;
+  text-align: center;
+  line-height: 60rpx;
+  color: #5276f2;
+  font-size: 28rpx;
+  margin-left:300rpx;
+  margin-top: 64rpx;
+}

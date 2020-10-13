@@ -1,0 +1,450 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('data:font/truetype;charset=utf-8;base64,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') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  /* speak: never; */
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.container{
+  padding: 0 40rpx;
+  align-items: stretch;
+}
+/* logo区域 */
+.userImg{
+  text-align: center;
+  margin-top: 60rpx;
+  margin-bottom: 105rpx;
+}
+.userImg>image{
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 50%;
+    margin-bottom: 20rpx;
+}
+.NiceName{
+  color: #071756;
+  font-family: "PingFangSC-Medium";
+  font-size: 32rpx;
+  margin-bottom: 6rpx;
+}
+.gender{
+  margin-left: -89rpx;
+  display: flex;
+}
+.gens{
+  width: 75rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 4rpx;
+  background-color: #ffc9d3;
+  margin-left: 345rpx;
+}
+.nan{
+  background-color: #d4ddfc;
+}
+.sex_nv{
+  width: 35rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  margin-left: 0;
+}
+.nan_tu{
+  color: #7689d2;
+}
+.nv_wen{
+  color: #ff2851;
+  font-family: "PingFangSC-Medium";
+  font-size: 20rpx;
+  margin-top: 10rpx;
+}
+.nan_wenzi{
+  color: #7689d2;
+}
+.xingzuo{
+  color: #7689d2;
+  font-family: "PingFangSC-Medium";
+  font-size: 20rpx;
+  width: 76rpx;
+  height: 32rpx;
+  border-radius: 4rpx;
+  background: #eef0fa;
+  padding: 6rpx;
+  margin-left: 20rpx;
+}
+.xingzuo1{
+  margin-left: 380rpx;
+  background: none;
+}
+.uesrID{
+  color: #afb6d3;
+  font-family: "PingFangSC-Medium";
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.uesrID_spc{
+  margin-top: -38rpx;
+}
+.userInfo{
+  margin-top: 72rpx;
+  margin-left: -28rpx;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 100rpx;
+  position: relative;
+}
+.userInfo image{
+  width: 180rpx;
+  height: 180rpx;
+  margin-bottom: 40rpx;
+  border-radius: 50%;
+}
+.userInfo view:first-of-type{
+  color: #071756;
+  font-family: "PingFangSC-Medium";
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+.userInfo view:last-of-type{
+  color: #afb6d3;
+  font-family: "PingFangSC-Medium";
+  font-size: 24rpx;
+}
+/* 图标区域 */
+.icon-more-vertical:before {
+  content: "\e904";
+}
+.icon-left{
+  font-size: 36rpx;
+  position: absolute;
+  right:48rpx;
+  top: 20rpx;
+  color:  #afb6d3;
+}
+.icon-mail:before {
+  content: "\e900";
+}
+.icon-Mail{
+  font-size: 36rpx;
+  position: absolute;
+  right: 120rpx;
+  top: 20rpx;
+  color:  #afb6d3;
+}
+/* logo区域end */
+
+/* tab切换 */
+.Tabs{
+  display: flex;
+  height: 88rpx;
+  line-height: 88rpx;
+  box-sizing: border-box;
+  margin-bottom: 30rpx;
+}
+.tab{
+  margin-right: 40rpx;
+  color: #afb6d3;
+  font-family: "PingFangSC-Medium";
+  font-size: 28rpx;
+  position: relative;
+}
+.active{
+  width: 80rpx;
+  height: 50rpx;
+  color: #5276f2;
+  font-family: "PingFangSC-Medium";
+  font-size: 40rpx;
+  font-weight: 400;
+  margin-right: 40rpx;
+}
+.active::before{
+  content: '';
+  position: absolute;
+  bottom: -32rpx;
+  left:50%;
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #5276f2;
+  border-radius: 50%;
+}
+
+/* 帖子页面 */
+.pageArticle{
+  display: none;
+}
+
+/* 无内容页面 */
+.NoComennt{
+  width: 224rpx;
+  height: 284rpx;
+  margin: 130rpx auto;
+}
+.NoComenntImg>image{
+  width: 220rpx;
+  height: 212rpx;
+}
+.NoComenntText{
+  color: #7689d2;
+  font-family: "PingFangSC-Regular";
+  font-size: 32rpx;
+  font-weight: 400;
+  margin-top: 20rpx;
+}
+
+/* 有页面 */
+
+.content{
+  padding-right: 20rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eef0fa;
+  margin-top: 28rpx;
+}
+.top-content{
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+/* 上部分 */
+.left-top{
+  flex: 1;
+  width: 450rpx;
+  line-height: 48rpx;
+  display: flex;
+  /* justify-content: space-between; */
+  flex-direction: column;
+}
+.left-top-spc{
+  height: 136rpx;
+ }
+.left-top-text{
+  color: #071756;
+  width: 480rpx;
+  font-family: "PingFangSC-Regular";
+  font-size: 32rpx;
+  font-weight: 400;
+  word-wrap: break-word;
+    word-break: normal;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+}
+.left-top-text-spc{
+  width: 705rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+}
+.left-bot-text{
+  /* width: 24px; */
+  height: 36rpx;
+  color: #afb6d3;
+  font-family: "PingFangSC-Regular";
+  font-size: 24rpx;
+  font-weight: 400;
+  line-height: 36rpx;
+}
+.right-top{
+  width: 228rpx;
+  width: 196rpx;
+  border-radius: 5px;
+}
+.right-img1{
+  width: 100%;
+  height: 100%;
+  margin-left: 20rpx;
+}
+/* 下部分 */
+.bot-content{
+  height: 32rpx;
+  line-height: 32rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.bot-img{
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 6rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.bot-text{
+  width: 456rpx;
+  height: 32rpx;
+  color: #7689d2;
+  font-family: "PingFangSC-Medium";
+  font-size: 24rpx;
+  font-weight: 400;
+}
+/* 帖子页面end */
+
+/* 班级页面 */
+.pageClass{
+  display: none;
+}
+
+/* 暂无班级 */
+.NoClass{
+  width: 224rpx;
+  height: 284rpx;
+  margin: 130rpx auto;
+}
+.NoClassImg>image{
+  width: 220rpx;
+  height: 212rpx;
+}
+.NoClassText{
+  color: #7689d2;
+  font-family: "PingFangSC-Regular";
+  font-size: 32rpx;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+/* 有班级 */
+.ClassList{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  padding-bottom: 40rpx;
+  border-bottom: 1px solid #e1e6f8;
+  box-sizing: border-box;
+}
+.ClassLists>view:nth-last-of-type(2){
+  border-bottom: 0;
+}
+.classInfo{
+  display: flex;
+}
+.classInfoImg{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 16rpx;
+}
+.classInfoImg>image{
+  width: 100%;
+  height: 100%;
+}
+.classInfoMes view:first-child{
+  width: 300rpx;
+  color: #333333;
+  font-family: "PingFangSC-Medium";
+  font-size: 28rpx;
+  font-weight: 400;
+  overflow: hidden;
+  white-space:nowrap; 
+  text-overflow:ellipsis
+}
+.classInfoMes view:last-child{
+  color: #afb6d3;
+  font-family: "PingFangSC-Regular";
+  font-size: 24rpx;
+  font-weight: 400;
+}
+.joinClassBtn{
+  width: 142px;
+  height: 60rpx;
+  border-radius: 42rpx;
+  background: #eef0fa;
+  color: #5276f2;
+  font-family: "PingFangSC-Medium";
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+.btnSpailce{
+  color: #afb6d3;
+}
+.NoClassContent{
+  width: 100%;
+  height: 120rpx;
+  text-align: center;
+  line-height: 120rpx;
+}
+.NoClassContent image{
+  width: 40rpx;
+  height: 24rpx;
+}
+.NoClassContent text{
+  color: #afb6d3;
+  font-family: "PingFangSC-Regular";
+  font-size: 28rpx;
+  margin: 0 20rpx;
+  font-weight: 400;
+}
+.NoClassContent .reserve{
+  transform:scaleX(-1);
+}
+/* 班级页面end */
+
+/* 编辑资料弹出层 */
+.editProfile{
+  height: 352rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  border-radius: 30rpx 30rpx 0 0 ;
+  background-color: #fff;
+  display: flex;
+}
+.editProfile image{
+  width: 72rpx;
+  height: 72rpx;
+}
+.editText{
+  position: absolute;
+  top: 96rpx;
+  left: 175rpx;
+}
+.editText image{
+  margin-left: 20rpx;
+}
+.editText view{
+  color: #7689d2;
+  font-family: "PingFangSC-Regular";
+  font-size: 28rpx;
+}
+.exitText{
+  position: absolute;
+  top: 96rpx;
+  right: 150rpx;
+}
+.exitText image{
+  margin-left: 20rpx;
+}
+.exitText view{
+  color: #7689d2;
+  font-family: "PingFangSC-Regular";
+  font-size: 28rpx;
+}
+/* 图标 */
+.icon-x:before {
+  content: "\e903";
+}
+.icon-cancel{
+		font-family: 'iconfont';
+		font-style: normal;
+    color:#afb6d3;
+    position: absolute;
+    bottom: 42rpx;
+    left: 47%;
+}
+/* 编辑资料弹出层end */
+

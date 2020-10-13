@@ -1,0 +1,89 @@
+<!--pages/classAll/index.wxml-->
+<view class="container1">
+      <!-- 标题切换 -->
+      <view class="{{topNav>0?'topNav titleBar' :'titleBar'}}">
+          <view class="left">
+            <!-- <text class="right-text">全部</text>
+            <text class="left-text active">我加入的</text>
+            <text class="left-text">我创建的</text> -->
+            <text class="{{seleted==1?'right-text active':'right-text'}}" data-num="1" bindtap="seletednow">全部</text>
+            <text class="{{seleted==2?'left-text active':'left-text'}}" data-num="2" bindtap="seletednow">我加入的</text>
+            <text class="{{seleted==3?'left-text active':'left-text'}}" data-num="3" bindtap="seletednow">我创建的</text>
+          </view>
+        <view class="img-right" bindtap="packet">
+            <image class="img" src="/static/images/hb.png" />
+        </view>
+      </view>
+      <!-- 正文部分 -->
+         <!-- 全部页面 -->
+      <view class="{{seleted==1?'classAll':'classAll classAllHide'}}" hidden="{{All}}">
+        <view wx:for="{{listAll}}" wx:key="{{class_id}}" class="classItem" >
+              <!-- 左侧区域 -->
+              <view class="classMessage" data-calssid="{{item.class_id}}"  data-classImg="{{item.class_avatar}}" data-className="{{item.class_name}}"  data-postid="{{item.banhui_post.post_id}}" bindtap="cardDesc">
+                <image  src="{{item.class_avatar == 'kong'? '/static/images/NoImg.png': src_a + item.class_avatar}}"></image>
+                <text>{{item.class_name}}</text>
+                <text>{{item.banhui_post== null? 0 : item.banhui_post.post_comments}}条更新</text>
+              </view>
+              <!-- 右侧区域 -->
+              <view class="{{item.joined==0?'joinClass':'joinClass joinClass2'}}" id="{{item.class_id}}" data-join="{{item.joined}}" bindtap="joinclass">
+                {{item.joined==0?'申请加入':'已加入'}}
+              </view>
+        </view>
+      </view>
+      <!-- 全部页面end -->
+
+        <!-- 我加入页面 -->
+          <!-- 有内容 -->
+      <view class="{{seleted==2?'':'MyClassAll'}}" hidden="{{join}}">
+          <view class="Joinclass" >
+            <view class="classItem" wx:for="{{joinClas}}" wx:key="{{class_id}}" data-id="{{item.class_id}}" bindtap="created_J">
+                <!-- 左侧区域 -->
+                <view class="classMessage">
+                  <image  src="{{item.class_avatar == 'kong'? '/static/images/NoImg.png':src_a + item.class_avatar}}"></image>
+                  <text>{{item.class_name}}</text>
+                  <text>{{item.banhui_post== null? 0 : item.banhui_post.post_comments}}条更新</text>
+                </view>
+                <!-- 右侧区域 -->
+                <view class="joinClass joinClass2">
+                  已加入
+                </view>
+            </view>
+          </view>
+      </view>
+            <!-- 暂无内容 -->
+      <view class="NoMyClass" hidden="{{join_no}}">
+          <view class="NoMyClassImg">
+              <image src="/static/images/comennt.png"></image>
+              <view class="NoJoin">未加入过班级</view>
+              <view class="NoJoinBtn" bindtap="gojion">去加入</view>
+          </view>
+      </view>
+       <!-- 我加入页面end -->
+
+       <!-- 我创建的页面 -->
+       <!-- 有内容 -->
+       <!-- <view class="{{seleted==3?'':'createdclassHide'}}" hidden="{{created}}"> -->
+       <view wx:if="{{seleted == 3}}">
+          <view class="createdclass">
+            <view class="createdItem_c" bindtap="created_t"  data-calssid="{{item.class_id}}" wx:for="{{createdClass}}" wx:key="{{class_id}}">
+                  <!-- 左侧区域 -->
+                  <view class="createdMessage_c">
+                    <image  src="{{item.class_avatar ==  'kong'?'/static/images/NoImg.png':src_a + item.class_avatar}}"></image>
+                    <text>{{item.class_name}}</text>
+                    <text>{{item.banhui_post== null? 0 : item.banhui_post.post_comments}}条更新</text>
+                  </view>
+            </view>
+            <view class="{{createdClass.length==0?'notice1':'notice'}}">*一个账号暂时只支持创建一个班级</view>
+          </view>
+        </view>
+       <!-- </view> -->
+        <!-- 暂无内容 -->
+      <view class="NoCreated" hidden="{{created2}}">
+            <view class="NoMyClassImg">
+                <image src="/static/images/comennt.png"></image>
+                <view class="NoJoin">未创建过班级</view>
+                <view class="NoJoinBtn" bindtap="created_c">创建班级</view>
+            </view>
+      </view>
+       <!-- 我创建的页面end -->
+</view>

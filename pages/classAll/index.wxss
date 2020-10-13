@@ -1,0 +1,308 @@
+.container1{
+  padding: 40rpx;
+}
+.titleBar {
+  width: 750rpx;
+  height: 88rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between
+
+}
+.topNav{
+  height: 130rpx;
+  background: #fff;
+  /* padding-right: 20rpx;
+  padding-left: 50rpx; */
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+}
+.right-text{
+  width: 84rpx;
+  height: 36rpx;
+  color: #afb6d3;
+  font-family: "PingFangSC-Medium";
+  font-size: 28rpx;
+  font-weight: 400;
+  line-height: 36rpx;
+  margin-right: 40rpx;
+  position: relative;
+}
+.left-text{
+  width: 84rpx;
+  height: 36rpx;
+  color: #afb6d3;
+  font-family: "PingFangSC-Medium";
+  font-size: 28rpx;
+  font-weight: 400;
+  line-height: 36rpx;
+  margin-right: 40rpx;
+  position: relative;
+}
+/* 选中样式 */
+.active{
+  width: 80rpx;
+  height: 50rpx;
+  color: #5276f2;
+  font-family: "PingFangSC-Medium";
+  font-size: 40rpx;
+  font-weight: 400;
+  line-height: 50rpx;
+  margin-right: 40rpx;
+}
+.active::before{
+  content: '';
+  position: absolute;
+  bottom: -16rpx;
+  left:50%;
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #5276f2;
+  border-radius: 50%;
+}
+.img-right{
+  width: 60rpx;
+  height: 60rpx;
+  position: relative;
+  margin-right: 80rpx;
+}
+.img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+}
+/* 正文部分 */
+
+/* 全部页面 */
+.createdItem{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.classAll{
+    display: flex;
+    flex-direction: column;
+}
+.classAllHide{
+  display: none;
+}
+.classItem{
+  flex: 1;
+  border-bottom: 1px solid #e1e6f8;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.classMessage>image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+  vertical-align: top;
+}
+.classMessage>text:first-of-type{
+  width: 305rpx;
+  display: inline-block;
+  color: #071756;
+  font-family: "PingFangSC-Medium";
+  font-size: 28rpx;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.classMessage>text:last-of-type{
+
+  color: #afb6d3;
+  font-family: "PingFangSC-Regular";
+  font-size: 24rpx;
+  font-weight: 400;
+  position: absolute;
+  top: 80rpx;
+  left: 100rpx;
+}
+.joinClass{
+  width: 160rpx;
+  height: 60rpx;
+  background-color: #eef0fa;
+  border-radius: 40rpx;
+  color: #5276f2;
+  font-family: "PingFangSC-Medium";
+  font-size: 28rpx;
+  font-weight: 400;
+  line-height: 60rpx;
+  text-align: center;
+}
+.joinClass2{
+  color: #afb6d3;
+}
+/* 全部页面end */
+
+/* 我加入的 */
+/* 有内容 */
+.MyClassAll{
+  display: none;
+}
+.classItem_j{
+  flex: 1;
+  border-bottom: 1px solid #e1e6f8;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.classMessage_j>image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+  vertical-align: top;
+}
+.classMessage_j>text:first-of-type{
+  width: 305rpx;
+  display: inline-block;
+  color: #071756;
+  font-family: "PingFangSC-Medium";
+  font-size: 28rpx;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.classMessage_j>text:last-of-type{
+
+  color: #afb6d3;
+  font-family: "PingFangSC-Regular";
+  font-size: 24rpx;
+  font-weight: 400;
+  position: absolute;
+  top: 80rpx;
+  left: 100rpx;
+}
+.Joinclass{
+  display: flex;
+  flex-direction: column;
+}
+
+/* 我加入的--暂无内容 */
+.NoMyClass{
+  text-align: center;
+}
+.NoMyClassImg{
+  width: 220rpx;
+  height: 212rpx;
+  margin: 300rpx auto 20rpx;
+}
+.NoMyClassImg image{
+    width: 100%;
+    height: 100%;
+}
+.NoJoin{
+  color: #7689d2;
+  font-family: "PingFangSC-Regular";
+  font-size: 32rpx;
+}
+.NoJoinBtn{
+  width: 80px;
+  height: 60rpx;
+  background-color: #5276f2;
+  border-radius: 40rpx;
+  text-align: center;
+  line-height: 60rpx;
+  margin-top: 30rpx;
+  margin-left: 24rpx;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+/* 我创建的页面 */
+/* 有内容 */
+/* .createdclassHide{
+  display: none;
+} */
+.createdclass{
+  display: flex;
+  flex-direction: column;
+}
+
+.createdItem_c{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.createdMessage_c>image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+  vertical-align: top;
+}
+.createdMessage_c>text:first-of-type{
+  width: 448rpx;
+  height: 26rpx;
+  overflow: hidden;
+  color: #071756;
+  font-family: "PingFangSC-Medium";
+  font-size: 28rpx;
+  font-weight: 400;
+}
+.createdMessage_c>text:last-of-type{
+  color: #afb6d3;
+  font-family: "PingFangSC-Regular";
+  font-size: 24rpx;
+  font-weight: 400;
+  position: absolute;
+  top: 80rpx;
+  left: 100rpx;
+}
+.notice{
+  color: #7689d2;
+  font-family: "PingFangSC-Regular";
+  font-size: 24rpx;
+}
+.notice1{
+  display :none;
+}
+/* 暂无内容 */
+.NoCreated{
+  text-align: center;
+}
+.NoMyClassImg{
+  width: 220rpx;
+  height: 212rpx;
+  margin: 300rpx auto 20rpx;
+}
+.NoMyClassImg image{
+    width: 100%;
+    height: 100%;
+}
+.NoJoin{
+  color: #7689d2;
+  font-family: "PingFangSC-Regular";
+  font-size: 32rpx;
+}
+.NoJoinBtn{
+  width: 160rpx;
+  height: 60rpx;
+  background-color: #5276f2;
+  border-radius: 40rpx;
+  text-align: center;
+  line-height: 60rpx;
+  margin-top: 30rpx;
+  margin-left: 24rpx;
+  color: #fff;
+  font-size: 28rpx;
+}
+/* 我创建的页面end */

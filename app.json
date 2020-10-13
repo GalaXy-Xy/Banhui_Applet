@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/login/index",
+   
+    "pages/login-content/index",
+    "pages/loginDetail/index",
+    "pages/classAll/index",
+    "pages/joinClassDetail/index",
+    "pages/classList/index",
+    "pages/userInfo1-1-1/index",
+    "pages/createdClassForm/index",
+    "pages/userInfo1-0/index",
+    "pages/SystemMessages/index",
+    "pages/loginDetail/ImgBig/index",
+    "pages/packet/index",
+    "pages/photos/index",
+    "pages/createdCard/index",
+    "pages/createdCode/index",
+    "pages/createdUserForm/index",
+    "pages/editUserForm/index",
+    "pages/date-time-picker/date-time-picker",
+    "pages/Clock_banbi/index",
+    "pages/demo/demo",
+    "pages/del/del"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "斑汇",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#afb6d3",
+    "selectedColor": "#5276f2",
+    "list": [
+      {
+        "pagePath": "pages/login/index",
+        "text": "发现",
+        "iconPath": "/static/images/tab6.png",
+        "selectedIconPath": "/static/images/tab1.png"
+      },
+      {
+        "pagePath": "pages/classAll/index",
+        "text": "班级",
+        "iconPath": "/static/images/tab2.png",
+        "selectedIconPath": "/static/images/tab5.png"
+      },
+      {
+        "pagePath": "pages/userInfo1-0/index",
+        "text": "我的",
+        "iconPath": "/static/images/tab3.png",
+        "selectedIconPath": "/static/images/tab4.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
